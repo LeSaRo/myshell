@@ -1,0 +1,2 @@
+# ushell
+My shell configuration
