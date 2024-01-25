@@ -24,10 +24,9 @@ alias zshrl="source $HOME/.zshrc"
 #Config
 alias ush="v $HOME/ushell"
 alias ushac="v $HOME/ushell/alacritty/"
-alias ushal="v $HOME/ushell/shell/aliases.sh"
 alias ushlzv="v $HOME/ushell/lzvim-core.lua"
+alias ushsh="v $HOME/ushell/shell/"
 alias ushtmux="v $HOME/ushell/tmux/"
-alias ushssh="v $HOME/ushell/shell/ssh-aliases.sh"
 
 #Developement
 alias v="nvim"

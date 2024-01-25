@@ -12,6 +12,10 @@ function ask() {
 	[ -z "$RESPONSE" ] || [ "$RESPONSE" = "y" ]
 }
 
+# Install zshrc
+if ask "Copy .zshrc (Y/n): "; then
+    cp $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
+
 # Source .sh files
 for FILE in "$USHDIR"/shell/*.sh; do
 	FULLPATH=$(realpath "$FILE")

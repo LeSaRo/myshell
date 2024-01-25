@@ -1,0 +1,41 @@
+HISTFILE=~/.zshist
+HISTSIZE=1000
+SAVEHIST=1000
+setopt correct # Auto correct
+setopt extendedglob # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob # Case insensitive globbing
+setopt rcexpandparam # Array expension with parameters
+setopt numericglobsort # Sort filenames numerically when it makes sense
+setopt nobeep # No beep
+setopt appendhistory # Immediately append history instead of overwriting
+setopt histignorealldups # If a new command is a duplicate, remove the older one
+setopt autocd # if only directory path is entered, cd there.
+setopt inc_append_history # save commands are added to the history immediately, otherwise only when shell exits.
+setopt histignorespace # Don't save commands that start with space
+setopt nomatch
+setopt prompt_subst
+bindkey -v
+WORDCHARS=${WORDCHARS//\/[&.;]} # Don't consider certain characters part of the word
+
+# Compinstall
+autoload -Uz compinit
+compinit
+zstyle :compinstall filename '/home/le_saro/.zshrc'
+#Git info
+autoload -Uz vcs_info
+precmd () { vcs_info }
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' formats ' (%F{33}%b%F{red}%u%c%f)' # (main)
+
+# Prompt
+PS1='%F{27}%1~ %f%${vcs_info_msg_0_} %(?:%F{81}❯:%F{218}❯)%f ' #{folder} ({branch}{/*/+}) ❯
+RPS1='%(?::%F{red}%?)' # Show error code at the end
+
+export EDITOR=/bin/nvim
+export MANPAGER="bat"
+
+# Need the zsh-autosuggestions and zsh-syntax-highlighting packages
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
