@@ -13,7 +13,7 @@ function ask() {
 }
 
 # Install zshrc
-if ask "Copy .zshrc (Y/n): "; then
+if ask "Copy .zshrc"; then
 	cp $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
 fi
 
@@ -26,14 +26,14 @@ for FILE in "$USHDIR"/shell/*.sh; do
 done
 
 # Alacritty config
-if ask "Install alcritty config (Y/n): "; then
+if ask "Install alcritty config"; then
 	mkdir -p "$CONFDIR""/alacritty/themes"
 	ln -s "$(realpath "$USHDIR"/alacritty/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
 	wget -O "$CONFDIR"/alacritty/themes/"theme.toml" https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/campbell.toml
 fi
 
 # tmux config
-if ask "Install tmux config (Y/n): "; then
+if ask "Install tmux config"; then
 	ln -s "$(realpath "$USHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
@@ -46,7 +46,7 @@ if ask "Install tmux config (Y/n): "; then
 fi
 
 # Neovim (LazyVim) config
-if ask "Install lazyvim w/ config (Y/n): "; then
+if ask "Install lazyvim w/ config"; then
 	git clone https://github.com/LazyVim/starter "$CONFDIR"/nvim
 	rm -rf "$CONFDIR"/nvim/.git
 	ln -s "$(realpath "$USHDIR"/lzvim-core.lua)" "$CONFDIR"/nvim/lua/plugins/core.lua
