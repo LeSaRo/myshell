@@ -28,6 +28,14 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' formats ' (%F{33}%b%F{red}%u%c%f)' # (main)
+#
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word                                     #
+bindkey '^[Od' backward-word                                    #
+bindkey '^[[1;5D' backward-word                                 #
+bindkey '^[[1;5C' forward-word                                  #
+bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 # Prompt
 PS1='%F{27}%1~ %f%${vcs_info_msg_0_} %(?:%F{81}❯:%F{218}❯)%f ' #{folder} ({branch}{/*/+}) ❯
