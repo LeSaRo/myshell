@@ -14,7 +14,8 @@ function ask() {
 
 # Install zshrc
 if ask "Copy .zshrc (Y/n): "; then
-    cp $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
+	cp $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
+fi
 
 # Source .sh files
 for FILE in "$USHDIR"/shell/*.sh; do
