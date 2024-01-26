@@ -20,7 +20,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]} # Don't consider certain characters part of the 
 # Compinstall
 autoload -Uz compinit
 compinit
-zstyle :compinstall filename '/home/le_saro/.zshrc'
+zstyle :compinstall filename "$HOME"'/.zshrc'
 #Git info
 autoload -Uz vcs_info
 precmd () { vcs_info }
@@ -30,20 +30,29 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' formats ' (%F{33}%b%F{red}%u%c%f)' # (main)
 #
 # Navigate words with ctrl+arrow keys
-bindkey '^[Oc' forward-word                                     #
-bindkey '^[Od' backward-word                                    #
-bindkey '^[[1;5D' backward-word                                 #
-bindkey '^[[1;5C' forward-word                                  #
-bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
-bindkey '^[[Z' undo                                             # Shift+tab undo last action
+bindkey '^[Oc' forward-word
+bindkey '^[Od' backward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^H' backward-kill-word # Delete previous word with ctrl+backspace
+bindkey '^[[Z' undo # Shift+tab undo last action
+# History search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Prompt
-PS1='%F{27}%1~ %f%${vcs_info_msg_0_} %(?:%F{81}❯:%F{218}❯)%f ' #{folder} ({branch}{/*/+}) ❯
-RPS1='%(?::%F{red}%?)' # Show error code at the end
+PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.❯)%f ' #{folder} ({branch}{/*/+}) ❯
+RPS1='%(?..%F{red}%?)' # Show error code at the end
 
 export EDITOR=/bin/nvim
 export MANPAGER="bat"
+export BAT_THEME="Visual Studio Dark+"
 
-# Need the zsh-autosuggestions and zsh-syntax-highlighting packages
+# Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source "$HOME"/.zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
+
+source "$HOME"/ushell/shell/aliases.sh
+source "$HOME"/ushell/shell/ssh-aliases.sh

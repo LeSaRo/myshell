@@ -49,21 +49,25 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 fi
 
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
-	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info 21 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
-		"modes 21 255"
-		"text 27 0"
-		"hostname 33 0"
-
-		#"tmux_session_info 81 0 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
-		#"modes 81 0"
-		#"text 218 0 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD} 218 0 right_disable separator_disable"
-		#"hostname 218 0"
-	)
+	if [[ USH_TPL_TH_ALT -eq 1 ]]; then
+		TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
+			"tmux_session_info 81 0 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
+			"modes 81 0"
+			"text 218 0 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD} 218 0 right_disable separator_disable"
+			"hostname 218 0"
+		)
+	else
+		TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
+			"tmux_session_info 21 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
+			"modes 21 255"
+			"text 27 0"
+			"hostname 33 0"
+		)
+	fi
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
-	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
+	TMUX_POWcRLINE_RIGHT_STATUS_SEGMENTS=(
 		"pwd 33 0"
 		"weather 27 0"
 		"date 21 255"
@@ -74,4 +78,19 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		#"date 81 16"
 		#"time 81 16 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 	)
+	if [[ USH_TPL_TH_ALT -eq 1 ]]; then
+		TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
+			"pwd 218 0"
+			"weather 218 0 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+			"date 81 16"
+			"time 81 16 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		)
+	else
+		TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
+			"pwd 33 0"
+			"weather 27 0"
+			"date 21 255"
+			"time 21 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		)
+	fi
 fi

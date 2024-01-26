@@ -8,22 +8,16 @@ USHDIR="$HOME""/ushell"
 CONFDIR="$HOME""/.config"
 
 function ask() {
-	read -rp "$1 (Y/n): " RESPONSE
+	read -rp "$1? (Y/n): " RESPONSE
 	[ -z "$RESPONSE" ] || [ "$RESPONSE" = "y" ]
 }
 
 # Install zshrc
 if ask "Copy .zshrc"; then
-	cp $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
+	ln -s $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
+    if ask "Enable colored man pages"; then
+        git clone https://github.com/ael-code/zsh-colored-man-pages.git "$HOME"/.zsh/plugins/zsh-colores-man-pages
 fi
-
-# Source .sh files
-for FILE in "$USHDIR"/shell/*.sh; do
-	FULLPATH=$(realpath "$FILE")
-	if ask "Source ${FILE}?"; then
-		echo "source ${FULLPATH}" >>"$HOME"/.zshrc
-	fi
-done
 
 # Alacritty config
 if ask "Install alcritty config"; then

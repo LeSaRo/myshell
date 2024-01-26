@@ -5,7 +5,9 @@ My shell configuration
 `git`
 `zsh`
 `zsh-autosuggestions`
+`zsh-colored-man-pages`
 `zsh-syntax-highlighting`
+`zsh-history-substring-search`
 `tmux`
 `neovim`
 `alacritty`

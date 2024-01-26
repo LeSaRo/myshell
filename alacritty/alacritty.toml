@@ -3,7 +3,10 @@ import = [
 ]
 
 [font]
-normal = { family  = "MonaspiceNe Nerd Font Mono", style = "Bold" }
+normal = { family  = "MonaspiceNe Nerd Font Mono", style = "Regular" }
+#bold = { family  = "MonaspiceRn Nerd Font Mono", style = "Bold" }
+#italic = { family  = "MonaspiceXe Nerd Font Mono", style = "Italic" }
+#bold_italic = { family  = "MonaspiceKr Nerd Font Mono", style = "Bold Italic" }
 #normal = { family  = "Monaspace Neon", style = "Regular" }
 
 [window]

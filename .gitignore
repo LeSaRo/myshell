@@ -1,1 +1,2 @@
-tmux/.env
+tmux/.env-tmux
+shell/.env-shell

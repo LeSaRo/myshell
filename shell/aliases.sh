@@ -1,4 +1,6 @@
 #!/bin/sh
+# Get env files
+source "$HOME""/ushell/shell/.env-shell"
 
 # Overrides
 alias ls="lsd --color=auto --group-dirs=first"
@@ -16,15 +18,15 @@ alias ll="ls -lh"
 alias lla="ll -a"
 alias lt="ls --tree"
 alias lta="lt -a"
-alias cdda="cd /media/data"
-alias cdde="cd /media/data/developement"
-alias cdnt="cd /media/data/textes/notetaker"
+alias cdda="cd ""$USH_DIR_DATA"
+alias cdde="cd ""$USH_DIR_DEV"
+alias cdnt="cd ""$USH_DIR_NOTETAKER"
 alias zshrl="source $HOME/.zshrc"
 
 #Config
 alias ush="v $HOME/ushell"
 alias ushac="v $HOME/ushell/alacritty/"
-alias ushlzv="v $HOME/ushell/lzvim-core.lua"
+alias ushnv="v $HOME/ushell/lzvim-core.lua"
 alias ushsh="v $HOME/ushell/shell/"
 alias ushtmux="v $HOME/ushell/tmux/"
 

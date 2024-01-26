@@ -30,6 +30,9 @@ export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
 # The maximum length of the right status bar.
 export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
 
+# Probably a bad idea but not keeping the GPS data in this file
+source ~/ushell/tmux/.env-tmux
+
 # Uncomment these if you want to enable tmux bindings for muting (hiding) one of the status bars.
 # E.g. this example binding would mute the left status bar when pressing <prefix> followed by Ctrl-[
 #export TMUX_POWERLINE_MUTE_LEFT_KEYBINDING="C-["
@@ -66,9 +69,6 @@ export TMUX_POWERLINE_SEG_TMUX_SESSION_INFO_FORMAT="#S:#I.#P"
 # }
 
 # weather.sh {
-
-# Probably a bad idea but not keeping the GPS data in this file
-source ~/ushell/tmux/.env
 
 # The data provider to use. Currently only "yahoo" is supported.
 export TMUX_POWERLINE_SEG_WEATHER_DATA_PROVIDER="yrno"
