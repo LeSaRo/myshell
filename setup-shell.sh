@@ -57,13 +57,13 @@ if ask "Install tmux config"; then
 		C_ALT="$(tput setaf 81)██$(tput setaf 218)██"
 		C_WHITE="$(tput setaf 7)"
 		read -rp "Use alt colors (0=${C_BASE} 1={$C_ALT}$(tput setaf 7))" RESPONSE
-		echo "USH_TPL_TH_ALT=""$RESPONSE" >>"$USHDIR""/tmux/.env"
+		echo "USH_TPL_TH_ALT=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
 
 		# Weather cordinates
 		read -rp "Location latitude" RESPONSE
-		echo "USH_TPL_W_LAT=""$RESPONSE" >>"$USHDIR""/tmux/.env"
+		echo "USH_TPL_W_LAT=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
 		read -rp "Location longitude" RESPONSE
-		echo "USH_TPL_W_LON=""$RESPONSE" >>"$USHDIR""/tmux/.env"
+		echo "USH_TPL_W_LON=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
 	fi
 fi
 
