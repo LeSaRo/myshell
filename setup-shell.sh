@@ -48,7 +48,8 @@ if ask "Install tmux config"; then
 	mkdir -p "$CONFDIR"/tmux-powerline/segments
 	ln -s "$(realpath "$USHDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/config.sh
 	ln -s "$(realpath "$USHDIR"/tmux/powerline/theme.sh)" "$CONFDIR"/tmux-powerline/themes/user.sh
-	ln -s "$(realpath "$USHDIR"/tmux/powerline/segments/)" "$CONFDIR"/tmux-powerline/
+	ln -s "$(realpath "$USHDIR"/tmux/powerline/segments/modes.sh)" "$CONFDIR"/tmux-powerline/segments/modes.sh
+	ln -s "$(realpath "$USHDIR"/tmux/powerline/segments/text.sh)" "$CONFDIR"/tmux-powerline/segments/text.sh
 
 	if ask "Config tmux .env"; then
 		# Alt colors
@@ -66,9 +67,7 @@ if ask "Install tmux config"; then
 	fi
 fi
 
-# Neovim (LazyVim) config
-if ask "Install lazyvim w/ config"; then
-	git clone https://github.com/LazyVim/starter "$CONFDIR"/nvim
-	rm -rf "$CONFDIR"/nvim/.git
-	ln -s "$(realpath "$USHDIR"/lzvim-core.lua)" "$CONFDIR"/nvim/lua/plugins/core.lua
+# Neovim config
+if ask "Install neovim config"; then
+	git clone https://github.com/LeSaRo/saro.nvim "$CONFDIR"/nvim
 fi

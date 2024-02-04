@@ -22,11 +22,12 @@ alias cdda="cd ""$USH_DIR_DATA"
 alias cdde="cd ""$USH_DIR_DEV"
 alias cdnt="cd ""$USH_DIR_NOTETAKER"
 alias zshrl="source $HOME/.zshrc"
+alias notetaker="v $USH_DIR_NOTETAKER"
 
 #Config
 alias ush="v $HOME/ushell"
 alias ushac="v $HOME/ushell/alacritty/"
-alias ushnv="v $HOME/ushell/lzvim-core.lua"
+alias ushnv="v $HOME/ushell/nvim/"
 alias ushsh="v $HOME/ushell/shell/"
 alias ushtmux="v $HOME/ushell/tmux/"
 
