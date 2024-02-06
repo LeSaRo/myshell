@@ -26,7 +26,7 @@ alias notetaker="v $USH_DIR_NOTETAKER"
 
 #Config
 alias ush="v $HOME/ushell"
-alias ushac="v $HOME/ushell/alacritty/"
+alias ushal="v $HOME/ushell/alacritty/"
 alias ushnv="v $HOME/ushell/nvim/"
 alias ushsh="v $HOME/ushell/shell/"
 alias ushtmux="v $HOME/ushell/tmux/"
@@ -38,6 +38,7 @@ alias ged="gedit"
 ## Git
 alias g="git"
 alias gs="git status"
+alias gd="git diff"
 alias ga="git add"
 alias gc="git commit"
 alias gpl="git pull"

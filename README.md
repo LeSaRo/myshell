@@ -27,4 +27,4 @@ Simply run the install script and answer the queries
 ```
 
 ## TODO
-- neovim from scrach
+- Configurable `modes.sh`
