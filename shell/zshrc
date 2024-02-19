@@ -27,7 +27,7 @@ precmd () { vcs_info }
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:*' formats ' (%F{33}%b%F{red}%u%c%f)' # (main)
+zstyle ':vcs_info:*' formats ' (%F{33}%b%F{red}%u%F{green}%c%f)' # (main)
 #
 # Navigate words with ctrl+arrow keys
 bindkey '^[Oc' forward-word
@@ -44,14 +44,21 @@ bindkey '^[[B' history-substring-search-down
 PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.❯)%f ' #{folder} ({branch}{/*/+}) ❯
 RPS1='%(?..%F{red}%?)' # Show error code at the end
 
+export PATH="$PATH":"$HOME"/.local/bin
 export EDITOR=/bin/nvim
 export MANPAGER="bat"
 export BAT_THEME="Visual Studio Dark+"
 
+# Get env files
+source "$HOME""/ushell/shell/.env-shell"
 # Plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source "$USH_DIR_ZSH_PLUGINS"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$USH_DIR_ZSH_PLUGINS"/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$USH_DIR_ZSH_PLUGINS"/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 source "$HOME"/ushell/shell/aliases.sh
 source "$HOME"/ushell/shell/ssh-aliases.sh
+# Optional alias file for machine specific aliases
+if [[ -f "$HOME"/.aliases ]]; then
+    source "$HOME"/.aliases
+fi
