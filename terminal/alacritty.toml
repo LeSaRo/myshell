@@ -22,4 +22,7 @@ background = '#070707'
 bindings = [
     # Allow font increase on fr-ch
     { key = "1", mods = "Control", action = "IncreaseFontSize" },
+
+    # Seems alacritty's parser isn't up to specs.
+    { key = "I", mods = "Control", chars = "\u001b[73;5u" }
 ]

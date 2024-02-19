@@ -35,7 +35,7 @@ fi
 # Alacritty config
 if ask "Install alcritty config"; then
 	mkdir -p "$CONFDIR""/alacritty/themes"
-	ln -s "$(realpath "$USHDIR"/alacritty/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
+	ln -s "$(realpath "$USHDIR"/terminal/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
 	wget -O "$CONFDIR"/alacritty/themes/"theme.toml" https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/campbell.toml
 fi
 
