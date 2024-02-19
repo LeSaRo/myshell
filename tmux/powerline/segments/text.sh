@@ -1,6 +1,6 @@
 # Print some text
 
-TMUX_POWERLINE_SEG_TEXT_DEFAULT="CHANGE ME!"
+TMUX_POWERLINE_SEG_TEXT_DEFAULT="tmux"
 
 generate_segmentrc() {
 	read -d '' rccontents <<EORC

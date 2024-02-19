@@ -1,20 +1,86 @@
 # Indicator of pressing TMUX prefix, copy and insert modes.
 # More compact version of mode_indicator
 
-prefix_pressed_text="P"
-insert_mode_text="I"
-copy_mode_text="C"
-normal_mode_text="N"
-separator="|"
+TMUX_POWERLINE_MODES_PREFIX_TEXT_DEFAULT="PREFIX PRESSED"
+TMUX_POWERLINE_MODES_INSERT_TEXT_DEFAULT="INSERT"
+TMUX_POWERLINE_MODES_COPY_TEXT_DEFAULT="COPY"
+TMUX_POWERLINE_MODES_COPY_TEXT_DEFAULT="NORMAL"
+TMUX_POWERLINE_MODES_SEPARATOR_TEXT_DEFAULT="✤ "
 
-prefix_mode_fg="colour9"
-normal_mode_fg="colour255"
-copy_mode_fg="colour22"
-bg="colour21"
+TMUX_POWERLINE_MODES_PREFIX_COLOR_DEFAULT="colour226"
+TMUX_POWERLINE_MODES_NORMAL_COLOR_DEFAULT="colour16"
+TMUX_POWERLINE_MODES_COPY_COLOR_DEFAULT="colour82"
+TMUX_POWERLINE_MODES_BG_COLOR_DEFAULT="colour33"
+
+generate_segmentrc() {
+	read -d '' rccontents  << EORC
+# Prefix pressed text
+export TMUX_POWERLINE_MODES_PREFIX_TEXT="${TMUX_POWERLINE_MODES_PREFIX_TEXT_DEFAULT}"
+# Insert mode text
+export TMUX_POWERLINE_MODES_INSERT_TEXT="${TMUX_POWERLINE_MODES_INSERT_TEXT_DEFAULT}"
+# Copy mode text
+export TMUX_POWERLINE_MODES_COPY_TEXT="${TMUX_POWERLINE_MODES_COPY_TEXT_DEFAULT}"
+# Normal mode text
+export TMUX_POWERLINE_MODES_NORMAL_TEXT="${TMUX_POWERLINE_MODES_NORMAL_TEXT_DEFAULT}"
+# Separator text
+export TMUX_POWERLINE_MODES_SEPARATOR_TEXT="${TMUX_POWERLINE_MODES_SEPARATOR_TEXT_DEFAULT}"
+
+# Prefix pressed color
+export TMUX_POWERLINE_MODES_PREFIX_COLOR="${TMUX_POWERLINE_MODES_PREFIX_COLOR_DEFAULT}"
+# Insert mode color
+export TMUX_POWERLINE_MODES_NORMAL_COLOR="${TMUX_POWERLINE_MODES_NORMAL_COLOR_DEFAULT}"
+# Copy mode color
+export TMUX_POWERLINE_MODES_COPY_COLOR="${TMUX_POWERLINE_MODES_COPY_COLOR_DEFAULT}"
+# Background color
+export TMUX_POWERLINE_MODES_BG_COLOR="${TMUX_POWERLINE_MODES_BG_COLOR_DEFAULT}"
+EORC
+	echo "$rccontents"
+}
+
+__process_settings() {
+    # Text
+	if [ -z "$TMUX_POWERLINE_MODES_PREFIX_TEXT" ]; then
+		export TMUX_POWERLINE_MODES_PREFIX_TEXT="${TMUX_POWERLINE_MODES_PREFIX_TEXT_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_INSERT_TEXT" ]; then
+		export TMUX_POWERLINE_MODES_INSERT_TEXT="${TMUX_POWERLINE_MODES_INSERT_TEXT_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_COPY_TEXT" ]; then
+		export TMUX_POWERLINE_MODES_COPY_TEXT="${TMUX_POWERLINE_MODES_COPY_TEXT_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_NORMAL_TEXT" ]; then
+		export TMUX_POWERLINE_MODES_NORMAL_TEXT="${TMUX_POWERLINE_MODES_NORMAL_TEXT_DEFAULT}"
+	fi
+
+    # Color
+	if [ -z "$TMUX_POWERLINE_MODES_PREFIX_COLOR" ]; then
+		export TMUX_POWERLINE_MODES_PREFIX_COLOR="${TMUX_POWERLINE_MODES_PREFIX_COLOR_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_NORMAL_COLOR" ]; then
+		export TMUX_POWERLINE_MODES_NORMAL_COLOR="${TMUX_POWERLINE_MODES_NORMAL_COLOR_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_COPY_COLOR" ]; then
+		export TMUX_POWERLINE_MODES_COPY_COLOR="${TMUX_POWERLINE_MODES_COPY_COLOR_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_NORMAL_COLOR" ]; then
+		export TMUX_POWERLINE_MODES_NORMAL_COLOR="${TMUX_POWERLINE_MODES_NORMAL_COLOR_DEFAULT}"
+	fi
+	if [ -z "$TMUX_POWERLINE_MODES_BG_COLOR" ]; then
+		export TMUX_POWERLINE_MODES_BG_COLOR="${TMUX_POWERLINE_MODES_BG_COLOR_DEFAULT}"
+	fi
+}
 
 run_segment() {
-	prefix_indicator="#[bg=${bg}]#{?client_prefix,#[fg=${prefix_mode_fg}]${prefix_pressed_text},#[fg=${normal_mode_fg}]${normal_mode_text}}"
-	normal_or_copy_indicator="#[bg=${bg}]#{?pane_in_mode,#[fg=${copy_mode_fg}]${copy_mode_text},#[fg=${normal_mode_fg}]${insert_mode_text}}"
-	echo $prefix_indicator"#[fg=${normal_mode_fg}]${separator}"$normal_or_copy_indicator
-	return 0
+    bgcolor="#[bg=${TMUX_POWERLINE_MODES_BG_COLOR}]"
+    normal_fg="#[fg=${TMUX_POWERLINE_MODES_NORMAL_COLOR}]"
+    prefix="#[fg=${TMUX_POWERLINE_MODES_PREFIX_COLOR}]${TMUX_POWERLINE_MODES_PEFIX_TEXT}"
+    normal="${normal_fg}${TMUX_POWERLINE_MODES_NORMAL_TEXT}"
+    copy="#[fg=${TMUX_POWERLINE_MODES_COPY_COLOR}]${TMUX_POWERLINE_MODES_COPY_TEXT}"
+    insert="${normal_fg}${TMUX_POWERLINE_MODES_INSERT_TEXT}"
+    separator="${TMUX_POWERLINE_MODES_SEPARATOR_TEXT}"
+
+    prefix_indicator="${bgcolor}#{?client_prefix,${prefix},${normal}}"
+    normal_or_copy_indicator="${bgcolor}#{?pane_in_mode,${copy},${insert}}"
+    echo $prefix_indicator"${normal_fg}${separator}"$normal_or_copy_indicator
+    return 0
 }

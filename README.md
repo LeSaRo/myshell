@@ -2,9 +2,6 @@
 My shell configuration
 
 ## Prerequisite
-```bash
-sudo pacman -S git zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search tmux neovim alacritty otf-monaspace-nerd
-```
 `git`
 
 `zsh`
