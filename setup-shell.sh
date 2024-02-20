@@ -20,14 +20,20 @@ if ask "Copy .zshrc"; then
 	fi
 
 	if ask "Config shell .env"; then
+		# zsh plugins
+		read -rp "zsh plugins path: " RESPONSE
+		echo "USH_DIR_ZSH_PLUGINS=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
+		# python venv path
+		read -rp "Python venv path: " RESPONSE
+		echo "USH_DIR_DATA=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
 		# data drive
-		read -rp "data drive path" RESPONSE
+		read -rp "Data drive path: " RESPONSE
 		echo "USH_DIR_DATA=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
 		# developement
-		read -rp "developement path" RESPONSE
+		read -rp "Developement path: " RESPONSE
 		echo "USH_DIR_DEV=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
 		# notetaker
-		read -rp "notetaker path" RESPONSE
+		read -rp "Notetaker path: " RESPONSE
 		echo "USH_DIR_NOTETAKER=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
 	fi
 fi
@@ -56,7 +62,7 @@ if ask "Install tmux config"; then
 		C_BASE="$(tput setaf 21)█$(tput setaf 27)█$(tput setaf 33)█"
 		C_ALT="$(tput setaf 81)██$(tput setaf 218)██"
 		C_WHITE="$(tput setaf 7)"
-		read -rp "Use alt colors (0=${C_BASE} 1={$C_ALT}$(tput setaf 7))" RESPONSE
+		read -rp "Use alt colors (0=${C_BASE} 1={$C_ALT}${C_WHITE}" RESPONSE
 		echo "USH_TPL_TH_ALT=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
 
 		# Weather cordinates
