@@ -73,7 +73,7 @@ __process_settings() {
 run_segment() {
     bgcolor="#[bg=${TMUX_POWERLINE_MODES_BG_COLOR}]"
     normal_fg="#[fg=${TMUX_POWERLINE_MODES_NORMAL_COLOR}]"
-    prefix="#[fg=${TMUX_POWERLINE_MODES_PREFIX_COLOR}]${TMUX_POWERLINE_MODES_PEFIX_TEXT}"
+    prefix="#[fg=${TMUX_POWERLINE_MODES_PREFIX_COLOR}]${TMUX_POWERLINE_MODES_PREFIX_TEXT}"
     normal="${normal_fg}${TMUX_POWERLINE_MODES_NORMAL_TEXT}"
     copy="#[fg=${TMUX_POWERLINE_MODES_COPY_COLOR}]${TMUX_POWERLINE_MODES_COPY_TEXT}"
     insert="${normal_fg}${TMUX_POWERLINE_MODES_INSERT_TEXT}"
