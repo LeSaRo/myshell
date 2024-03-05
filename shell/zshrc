@@ -36,9 +36,6 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word # Delete previous word with ctrl+backspace
 bindkey '^[[Z' undo # Shift+tab undo last action
-# History search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # Prompt
 PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.❯)%f ' #{folder} ({branch}{/*/+}) ❯
@@ -52,12 +49,19 @@ export BAT_THEME="Visual Studio Dark+"
 # Get env files
 source "$HOME""/ushell/shell/.env-shell"
 # Plugins
-source "$USH_DIR_ZSH_PLUGINS"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source "$USH_DIR_ZSH_PLUGINS"/zsh-autosuggestions/zsh-autosuggestions.zsh
-source "$USH_DIR_ZSH_PLUGINS"/zsh-history-substring-search/zsh-history-substring-search.zsh
+for fp in "$HOME"/.zsh/plugins/*; do
+    fn=$(ls "$fp"/*.plugin.zsh) 2> /dev/null
+    if [[ $? -ne 0 ]]; then
+        fn=$(ls "$fp"/*.zsh)
+    fi
+    source $fn
+done
+# History search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 source "$HOME"/ushell/shell/aliases.sh
-# Optional alias file for machine specific aliases
-if [[ -f "$HOME"/.aliases ]]; then
-    source "$HOME"/.aliases
+# Optional config file for machine specific aliases
+if [[ -f "$HOME"/.machinerc ]]; then
+    source "$HOME"/.machinerc
 fi
