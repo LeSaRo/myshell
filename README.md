@@ -22,6 +22,3 @@ Simply run the install script and answer the queries
 ```bash
 ~/ushell/setup-shell.sh
 ```
-
-## TODO
-- Configurable `modes.sh`

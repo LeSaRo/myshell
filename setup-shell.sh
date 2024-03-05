@@ -8,8 +8,8 @@ USHDIR="$HOME""/ushell"
 CONFDIR="$HOME""/.config"
 
 function ask() {
-	read -rp "$1? (Y/n): " RESPONSE
-	[ -z "$RESPONSE" ] || [ "$RESPONSE" = "y" ]
+	read -rp "$1? (Y/n): " response
+	[ -z "$response" ] || [ "$response" = "y" ]
 }
 
 # Install zshrc
@@ -21,20 +21,20 @@ if ask "Copy .zshrc"; then
 
 	if ask "Config shell .env"; then
 		# zsh plugins
-		read -rp "zsh plugins path: " RESPONSE
-		echo "USH_DIR_ZSH_PLUGINS=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
+		read -rp "zsh plugins path: " response
+		echo "USH_DIR_ZSH_PLUGINS=""$response" >>"$USHDIR"/shell/.env-shell
 		# python venv path
-		read -rp "Python venv path: " RESPONSE
-		echo "USH_DIR_DATA=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
+		read -rp "Python venv path: " response
+		echo "USH_DIR_DATA=""$response" >>"$USHDIR"/shell/.env-shell
 		# data drive
-		read -rp "Data drive path: " RESPONSE
-		echo "USH_DIR_DATA=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
+		read -rp "Data drive path: " response
+		echo "USH_DIR_DATA=""$response" >>"$USHDIR"/shell/.env-shell
 		# developement
-		read -rp "Developement path: " RESPONSE
-		echo "USH_DIR_DEV=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
+		read -rp "Developement path: " response
+		echo "USH_DIR_DEV=""$response" >>"$USHDIR"/shell/.env-shell
 		# notetaker
-		read -rp "Notetaker path: " RESPONSE
-		echo "USH_DIR_NOTETAKER=""$RESPONSE" >>"$USHDIR"/shell/.env-shell
+		read -rp "Notetaker path: " response
+		echo "USH_DIR_NOTETAKER=""$response" >>"$USHDIR"/shell/.env-shell
 	fi
 fi
 
@@ -59,17 +59,17 @@ if ask "Install tmux config"; then
 
 	if ask "Config tmux .env"; then
 		# Alt colors
-		C_BASE="$(tput setaf 21)█$(tput setaf 27)█$(tput setaf 33)█"
-		C_ALT="$(tput setaf 81)██$(tput setaf 218)██"
-		C_WHITE="$(tput setaf 7)"
-		read -rp "Use alt colors (0=${C_BASE} 1={$C_ALT}${C_WHITE}" RESPONSE
-		echo "USH_TPL_TH_ALT=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
+		c_base="$(tput setaf 21)█$(tput setaf 27)█$(tput setaf 33)█"
+		c_alt="$(tput setaf 81)██$(tput setaf 218)██"
+		c_white="$(tput setaf 7)"
+		read -rp "Use alt colors (0=${c_base} 1={$c_alt}${c_white}" response
+		echo "USH_TPL_TH_ALT=""$response" >>"$USHDIR""/tmux/.env-tmux"
 
 		# Weather cordinates
-		read -rp "Location latitude" RESPONSE
-		echo "USH_TPL_W_LAT=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
-		read -rp "Location longitude" RESPONSE
-		echo "USH_TPL_W_LON=""$RESPONSE" >>"$USHDIR""/tmux/.env-tmux"
+		read -rp "Location latitude" response
+		echo "USH_TPL_W_LAT=""$response" >>"$USHDIR""/tmux/.env-tmux"
+		read -rp "Location longitude" response
+		echo "USH_TPL_W_LON=""$response" >>"$USHDIR""/tmux/.env-tmux"
 	fi
 fi
 
