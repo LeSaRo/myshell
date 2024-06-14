@@ -5,7 +5,7 @@
 # Date        : 2024.01.22, V1.0
 # Date        : 2024.06.14, V1.1, Renaming
 
-USHDIR="$HOME""/myshell"
+MYSHELLDIR="$HOME""/myshell"
 CONFDIR="$HOME""/.config"
 
 function ask() {
@@ -23,42 +23,42 @@ if ask "Copy .zshrc"; then
 	if ask "Config shell .env"; then
 		# zsh plugins
 		read -rp "zsh plugins path: " response
-		echo "USH_DIR_ZSH_PLUGINS=""$response" >>"$USHDIR"/shell/.env-shell
+		echo "MYSH_DIR_ZSH_PLUGINS=""$response" >>"$MYSHELLDIR"/shell/.env-shell
 		# python venv path
 		read -rp "Python venv path: " response
-		echo "USH_DIR_DATA=""$response" >>"$USHDIR"/shell/.env-shell
+		echo "MYSH_DIR_DATA=""$response" >>"$MYSHELLDIR"/shell/.env-shell
 		# data drive
 		read -rp "Data drive path: " response
-		echo "USH_DIR_DATA=""$response" >>"$USHDIR"/shell/.env-shell
+		echo "MYSH_DIR_DATA=""$response" >>"$MYSHELLDIR"/shell/.env-shell
 		# developement
 		read -rp "Developement path: " response
-		echo "USH_DIR_DEV=""$response" >>"$USHDIR"/shell/.env-shell
+		echo "MYSH_DIR_DEV=""$response" >>"$MYSHELLDIR"/shell/.env-shell
 		# notetaker
 		read -rp "Notetaker path: " response
-		echo "USH_DIR_NOTETAKER=""$response" >>"$USHDIR"/shell/.env-shell
+		echo "MYSH_DIR_NOTETAKER=""$response" >>"$MYSHELLDIR"/shell/.env-shell
 	fi
 fi
 
 # Alacritty config
 if ask "Install alcritty config"; then
 	mkdir -p "$CONFDIR""/alacritty/themes"
-	ln -s "$(realpath "$USHDIR"/terminal/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
+	ln -s "$(realpath "$MYSHELLDIR"/terminal/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
 	wget -O "$CONFDIR"/alacritty/themes/"theme.toml" https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/campbell.toml
 fi
 
 # tmux config
 if ask "Install tmux config"; then
-	ln -s "$(realpath "$USHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
+	ln -s "$(realpath "$MYSHELLDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	ln -sn "$(realpath "$USHDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/
+	ln -sn "$(realpath "$MYSHELLDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/
 
 	if ask "Config tmux .env"; then
 		# Weather cordinates
 		read -rp "Location latitude" response
-		echo "USH_TPL_W_LAT=""$response" >>"$USHDIR""/tmux/.env-tmux"
+		echo "MYSH_TPL_W_LAT=""$response" >>"$MYSHELLDIR""/tmux/.env-tmux"
 		read -rp "Location longitude" response
-		echo "USH_TPL_W_LON=""$response" >>"$USHDIR""/tmux/.env-tmux"
+		echo "MYSH_TPL_W_LON=""$response" >>"$MYSHELLDIR""/tmux/.env-tmux"
 	fi
 fi
 
