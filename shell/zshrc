@@ -37,6 +37,12 @@ bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word # Delete previous word with ctrl+backspace
 bindkey '^[[Z' undo # Shift+tab undo last action
 
+# Disable Control Flow (Ctrl+S Ctrl+Q)
+if [[ -t 0 && $- = *i* ]]
+then
+    stty -ixon
+fi 
+
 # Prompt
 PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.❯)%f ' #{folder} ({branch}{/*/+}) ❯
 RPS1='%(?..%F{red}%?)' # Show error code at the end
@@ -47,7 +53,7 @@ export MANPAGER="bat"
 export BAT_THEME="Visual Studio Dark+"
 
 # Get env files
-source "$HOME""/ushell/shell/.env-shell"
+source "$HOME""/myshell/shell/.env-shell"
 # Plugins
 for fp in "$HOME"/.zsh/plugins/*; do
     fn=$(ls "$fp"/*.plugin.zsh) 2> /dev/null
@@ -60,7 +66,7 @@ done
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-source "$HOME"/ushell/shell/aliases.sh
+source "$HOME"/myshell/shell/aliases.sh
 # Optional config file for machine specific aliases
 if [[ -f "$HOME"/.machinerc ]]; then
     source "$HOME"/.machinerc

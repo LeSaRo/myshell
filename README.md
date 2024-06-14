@@ -1,4 +1,4 @@
-# ushell
+# myshell
 My shell configuration
 
 ## Prerequisite
@@ -20,5 +20,5 @@ My shell configuration
 ## Installation
 Simply run the install script and answer the queries
 ```bash
-~/ushell/setup-shell.sh
+~/myshell/setup-shell.sh
 ```

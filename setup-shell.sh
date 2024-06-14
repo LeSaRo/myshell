@@ -1,10 +1,11 @@
 #!/bin/bash
 # Script      : setup-shell.sh
-# Description : Setup the shell using the files in the ushell/ directory
+# Description : Setup the shell using the files in the myshell/ directory
 # Author      : Le_SaRo
 # Date        : 2024.01.22, V1.0
+# Date        : 2024.06.14, V1.1, Renaming
 
-USHDIR="$HOME""/ushell"
+USHDIR="$HOME""/myshell"
 CONFDIR="$HOME""/.config"
 
 function ask() {
@@ -14,7 +15,7 @@ function ask() {
 
 # Install zshrc
 if ask "Copy .zshrc"; then
-	ln -s $(realpath "$USHDIR"/shell/zshrc) "$HOME"/.zshrc
+	ln -s $(realpath "$MYSHDIR"/shell/zshrc) "$HOME"/.zshrc
 	if ask "Enable colored man pages"; then
 		git clone https://github.com/ael-code/zsh-colored-man-pages.git "$HOME"/.zsh/plugins/zsh-colores-man-pages
 	fi
@@ -50,21 +51,9 @@ if ask "Install tmux config"; then
 	ln -s "$(realpath "$USHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	mkdir -p "$CONFDIR"/tmux-powerline/themes
-	mkdir -p "$CONFDIR"/tmux-powerline/segments
-	ln -s "$(realpath "$USHDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/config.sh
-	ln -s "$(realpath "$USHDIR"/tmux/powerline/theme.sh)" "$CONFDIR"/tmux-powerline/themes/user.sh
-	ln -s "$(realpath "$USHDIR"/tmux/powerline/segments/modes.sh)" "$CONFDIR"/tmux-powerline/segments/modes.sh
-	ln -s "$(realpath "$USHDIR"/tmux/powerline/segments/text.sh)" "$CONFDIR"/tmux-powerline/segments/text.sh
+	ln -sn "$(realpath "$USHDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/
 
 	if ask "Config tmux .env"; then
-		# Alt colors
-		c_base="$(tput setaf 21)█$(tput setaf 27)█$(tput setaf 33)█"
-		c_alt="$(tput setaf 81)██$(tput setaf 218)██"
-		c_white="$(tput setaf 7)"
-		read -rp "Use alt colors (0=${c_base} 1={$c_alt}${c_white}" response
-		echo "USH_TPL_TH_ALT=""$response" >>"$USHDIR""/tmux/.env-tmux"
-
 		# Weather cordinates
 		read -rp "Location latitude" response
 		echo "USH_TPL_W_LAT=""$response" >>"$USHDIR""/tmux/.env-tmux"
