@@ -5,7 +5,7 @@
 # Date        : 2024.01.22, V1.0
 # Date        : 2024.06.14, V1.1, Renaming
 
-MYSHELLDIR="$HOME""/myshell"
+MYSHDIR="$HOME""/myshell"
 CONFDIR="$HOME""/.config"
 
 function ask() {

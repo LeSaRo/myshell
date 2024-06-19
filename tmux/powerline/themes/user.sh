@@ -49,56 +49,18 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 	)
 fi
 
-# Format: segment_name background_color foreground_color [non_default_separator] [separator_background_color] [separator_foreground_color] [spacing_disable] [separator_disable]
-#
-# * background_color and foreground_color. Formats:
-#   * Named colors (chech man page of tmux for complete list) e.g. black, red, green, yellow, blue, magenta, cyan, white
-#   * a hexadecimal RGB string e.g. #ffffff
-#   * 'default' for the defalt tmux color.
-# * non_default_separator - specify an alternative character for this segment's separator
-# * separator_background_color - specify a unique background color for the separator
-# * separator_foreground_color - specify a unique foreground color for the separator
-# * spacing_disable - remove space on left, right or both sides of the segment:
-#   * "left_disable" - disable space on the left
-#   * "right_disable" - disable space on the right
-#   * "both_disable" - disable spaces on both sides
-#   * - any other character/string produces no change to default behavior (eg "none", "X", etc.)
-#
-# * separator_disable - disables drawing a separator on this segment, very useful for segments
-#   with dynamic background colours (eg tmux_mem_cpu_load):
-#   * "separator_disable" - disables the separator
-#   * - any other character/string produces no change to default behavior
-#
-# Example segment with separator disabled and right space character disabled:
-# "hostname 33 0 {TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD} 33 0 right_disable separator_disable"
-#
-# Note that although redundant the non_default_separator, separator_background_color and
-# separator_foreground_color options must still be specified so that appropriate index
-# of options to support the spacing_disable and separator_disable features can be used
-
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
         "tmux_session_info 27 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
         "modes 27 255"
-        #"text 27 0"
         "hostname 33 0"
-		#"ifstat 30 255" \
-		#"ifstat_sys 30 255" \
-		#"lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		#"wan_ip 24 255" \
-		#"vcs_branch 29 88" \
-		#"vcs_compare 60 255" \
-		#"vcs_staged 64 255" \
-		#"vcs_modified 9 255" \
-		#"vcs_others 245 0" \
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
         "pwd 33 0"
-        #"weather 27 0"
         "date 27 255"
-            "time 27 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+        "time 27 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi
