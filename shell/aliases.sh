@@ -14,21 +14,26 @@ alias sp="pacman -Ss"
 alias c="clear"
 alias m="man"
 alias mkd="mkdir -v"
+alias copy="cp -rv"
 alias hist="history"
 alias zshrl="source $HOME/.zshrc"
-alias pern="perl-rename"
+alias pern="perl-rename -v"
+alias pernt="pern -n"
 ## ls
 alias la="ls -a"
 alias ll="ls -lh"
 alias lla="ll -a"
+alias l1="ls -1"
+alias l1a="l1 -a"
 alias lt="ls --tree"
 alias lta="lt -a"
 ## Directories
 alias cdda="cd ""$MYSH_DIR_DATA"
 alias cdde="cd ""$MYSH_DIR_DEV"
-alias cdnt="cd ""$MYSH_DIR_NOTETAKER"
-alias notetaker="v $MYSH_DIR_NOTETAKER"
-alias normalise-names="perl-rename -v \"y/A-Z/a-z/; y/ ,/-/; s/[~#()\!\&_]/-/g; s/-{2,}/-/g; s/'//g\" *"
+alias cdvl="cd ""$MYSH_DIR_VOILE"
+alias voile="v $MYSH_DIR_VOILE/docs"
+alias normalise-names="perl-rename -v \"y/A-Z/a-z/; y/ ,/-/; s/[~#()\!\&_]/-/g; s/'//g; s/-{2,}/-/g\" *"
+alias dusthis="dust -d=1"
 ## Config
 alias mysh="v ""$HOME""/myshell"
 alias myshal="v ""$HOME""/myshell/alacritty/"
@@ -57,9 +62,6 @@ alias mkdb="MKD_PDF_EXPORT=1 mkdocs build"
 # Internet
 alias yt="yt-dlp -f best -ciw -o \"%(title)s.%(ext)s\" -v" #DL YT vid as MP4
 alias yta="yt-dlp --add-metadata -xic --audio-format mp3"  #DL YT vid audio as MP3
-
-# Games
-alias thprac-16="WINEPREFIX=/media/data/SteamLibrary/steamapps/compatdata/745880/pfx/ $HOME/.local/share/Steam/compatibilitytools.d/GE-Proton8-23/files/bin/wine /media/data/Jeux/Touhou/thprac/thprac.v2.2.1.4.exe"
 
 # Silly
 alias TheSenseOfLife="help 42"

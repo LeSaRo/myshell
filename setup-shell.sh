@@ -23,42 +23,42 @@ if ask "Copy .zshrc"; then
 	if ask "Config shell .env"; then
 		# zsh plugins
 		read -rp "zsh plugins path: " response
-		echo "MYSH_DIR_ZSH_PLUGINS=""$response" >>"$MYSHELLDIR"/shell/.env-shell
+		echo "MYSH_DIR_ZSH_PLUGINS=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# python venv path
 		read -rp "Python venv path: " response
-		echo "MYSH_DIR_DATA=""$response" >>"$MYSHELLDIR"/shell/.env-shell
+		echo "MYSH_DIR_DATA=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# data drive
 		read -rp "Data drive path: " response
-		echo "MYSH_DIR_DATA=""$response" >>"$MYSHELLDIR"/shell/.env-shell
+		echo "MYSH_DIR_DATA=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# developement
 		read -rp "Developement path: " response
-		echo "MYSH_DIR_DEV=""$response" >>"$MYSHELLDIR"/shell/.env-shell
+		echo "MYSH_DIR_DEV=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# notetaker
 		read -rp "Notetaker path: " response
-		echo "MYSH_DIR_NOTETAKER=""$response" >>"$MYSHELLDIR"/shell/.env-shell
+		echo "MYSH_DIR_NOTETAKER=""$response" >>"$MYSHDIR"/shell/.env-shell
 	fi
 fi
 
 # Alacritty config
 if ask "Install alcritty config"; then
 	mkdir -p "$CONFDIR""/alacritty/themes"
-	ln -s "$(realpath "$MYSHELLDIR"/terminal/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
+	ln -s "$(realpath "$MYSHDIR"/terminal/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
 	wget -O "$CONFDIR"/alacritty/themes/"theme.toml" https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/campbell.toml
 fi
 
 # tmux config
 if ask "Install tmux config"; then
-	ln -s "$(realpath "$MYSHELLDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
+	ln -s "$(realpath "$MYSHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	ln -sn "$(realpath "$MYSHELLDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/
+	ln -sn "$(realpath "$MYSHDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/
 
 	if ask "Config tmux .env"; then
 		# Weather cordinates
 		read -rp "Location latitude" response
-		echo "MYSH_TPL_W_LAT=""$response" >>"$MYSHELLDIR""/tmux/.env-tmux"
+		echo "MYSH_TPL_W_LAT=""$response" >>"$MYSHDIR""/tmux/.env-tmux"
 		read -rp "Location longitude" response
-		echo "MYSH_TPL_W_LON=""$response" >>"$MYSHELLDIR""/tmux/.env-tmux"
+		echo "MYSH_TPL_W_LON=""$response" >>"$MYSHDIR""/tmux/.env-tmux"
 	fi
 fi
 
