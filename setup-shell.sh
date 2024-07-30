@@ -26,7 +26,7 @@ if ask "Copy .zshrc"; then
 		echo "MYSH_DIR_ZSH_PLUGINS=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# python venv path
 		read -rp "Python venv path: " response
-		echo "MYSH_DIR_DATA=""$response" >>"$MYSHDIR"/shell/.env-shell
+		echo "MYSH_DIR_VENV=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# data drive
 		read -rp "Data drive path: " response
 		echo "MYSH_DIR_DATA=""$response" >>"$MYSHDIR"/shell/.env-shell
@@ -34,8 +34,8 @@ if ask "Copy .zshrc"; then
 		read -rp "Developement path: " response
 		echo "MYSH_DIR_DEV=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# notetaker
-		read -rp "Notetaker path: " response
-		echo "MYSH_DIR_NOTETAKER=""$response" >>"$MYSHDIR"/shell/.env-shell
+		read -rp "Voile path: " response
+		echo "MYSH_DIR_VOILE=""$response" >>"$MYSHDIR"/shell/.env-shell
 	fi
 fi
 
@@ -51,15 +51,7 @@ if ask "Install tmux config"; then
 	ln -s "$(realpath "$MYSHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	ln -sn "$(realpath "$MYSHDIR"/tmux/powerline/config.sh)" "$CONFDIR"/tmux-powerline/
-
-	if ask "Config tmux .env"; then
-		# Weather cordinates
-		read -rp "Location latitude" response
-		echo "MYSH_TPL_W_LAT=""$response" >>"$MYSHDIR""/tmux/.env-tmux"
-		read -rp "Location longitude" response
-		echo "MYSH_TPL_W_LON=""$response" >>"$MYSHDIR""/tmux/.env-tmux"
-	fi
+	ln -sfn "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline/
 fi
 
 # Neovim config

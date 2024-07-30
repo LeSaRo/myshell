@@ -30,9 +30,6 @@
 	# The maximum length of the right status bar.
 	export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
 
-    # Probably a bad idea but not keeping the GPS data in this file
-    source ~/myshell/tmux/.env-tmux
-
 	# Uncomment these if you want to enable tmux bindings for muting (hiding) one of the status bars.
 	# E.g. this example binding would mute the left status bar when pressing <prefix> followed by Ctrl-[
 	#export TMUX_POWERLINE_MUTE_LEFT_KEYBINDING="C-["

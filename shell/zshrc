@@ -55,7 +55,7 @@ export BAT_THEME="Visual Studio Dark+"
 # Get env files
 source "$HOME""/myshell/shell/.env-shell"
 # Plugins
-for fp in "$HOME"/.zsh/plugins/*; do
+for fp in "$MYSH_DIR_ZSH_PLUGINS"/*; do
     fn=$(ls "$fp"/*.plugin.zsh) 2> /dev/null
     if [[ $? -ne 0 ]]; then
         fn=$(ls "$fp"/*.zsh)
@@ -65,6 +65,12 @@ done
 # History search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+#vi-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
+bindkey  "^[[1~"   beginning-of-line
+bindkey  "^[[4~"   end-of-line
+bindkey  "^[[3~"  delete-char
 
 source "$HOME"/myshell/shell/aliases.sh
 # Optional config file for machine specific aliases
