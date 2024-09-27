@@ -2,23 +2,37 @@
 My shell configuration
 
 ## Prerequisite
-`git`
+### Shell
+``` bash
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-history-substring-search
+git
+tmux
+neovim
+```
 
-`zsh`
-`zsh-autosuggestions`
-`zsh-syntax-highlighting`
-`zsh-history-substring-search`
+### Aliases
+```bash
+lsd
+perl-rename
+dust
+mkdocs
+yt-dlp
+```
 
-`tmux`
-
-`neovim`
+### Neovim
 `chafa`
 
-`alacritty`
-`otf-monaspace-nerd`
+### Teminal
+``` bash
+alacritty
+otf-monaspace-nerd
+```
 
 ## Installation
 Simply run the install script and answer the queries
 ```bash
-~/myshell/setup-shell.sh
+myshell/setup-shell.sh
 ```
