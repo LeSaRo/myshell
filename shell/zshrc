@@ -44,13 +44,8 @@ then
 fi 
 
 # Prompt
-PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.❯)%f ' #{folder} ({branch}{/*/+}) ❯
+PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.>)%f ' #{folder} ({branch}{/*/+}) ❯
 RPS1='%(?..%F{red}%?)' # Show error code at the end
-
-export PATH="$PATH":"$HOME"/.local/bin
-export EDITOR=/bin/nvim
-export MANPAGER="bat"
-export BAT_THEME="Visual Studio Dark+"
 
 # Get env files
 source "$HOME""/myshell/shell/.env-shell"
@@ -71,6 +66,9 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
+
+# Not in .zshenv because it'll get overwriten
+AUTO_NOTIFY_IGNORE+=("docker" "ytfzf" "btop" "bat" "lf")
 
 source "$HOME"/myshell/shell/aliases.sh
 # Optional config file for machine specific aliases

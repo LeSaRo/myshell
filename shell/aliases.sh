@@ -20,6 +20,7 @@ alias hist="history"
 alias zshrl="source $HOME/.zshrc"
 alias pern="perl-rename -v"
 alias pernt="pern -n"
+alias weather="curl fr.wttr.in/Genève?qf"
 ## ls
 alias la="ls -a"
 alias ll="ls -lh"
