@@ -1,7 +1,15 @@
 #!/bin/sh
-free -h | awk '/^Mem/ { print ":"$3 }' | sed s/i//g
+
+memory=$(free -h | awk '/^Mem/ { print ":"$3 }' | sed s/i//g)
+cpu=$(iostat -c | awk 'NR>=4 && NR <=4' | awk '{print ""$3"%"}')
 
 case "$BUTTON" in
     3) $TERMINAL -e btop ;;
     6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
+
+echo $memory" "$cpu
+
+unset memory
+
+exit 0
