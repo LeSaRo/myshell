@@ -1,0 +1,7 @@
+#!/bin/sh
+free -h | awk '/^Mem/ { print ":"$3 }' | sed s/i//g
+
+case "$BUTTON" in
+    3) $TERMINAL -e btop ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

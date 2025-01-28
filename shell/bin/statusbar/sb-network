@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ "$(cat /sys/class/net/w*/operstate 2>/dev/null)" = 'up' ]; then
+    wficon="🛜"
+else
+    wficon="❌"
+fi
+
+if [ "$(cat /sys/class/net/e*/operstate 2>/dev/null)" = 'up' ]; then
+    eticon="🌐"
+else
+    eticon="❌"
+fi
+
+case "$BUTTON" in
+    3) $TERMINAL -e nmtui & ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+echo "$wficon""/""$eticon"

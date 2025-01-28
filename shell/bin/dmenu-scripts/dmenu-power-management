@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# dmenu config
+#font="MonaspiceKr Nerd Font Mono:size=11"
+#colors="-nb #222222 -nf #bbbbbb -sb #FF0000 -sf #eeeeee"
+optex="Exit"
+optlk="Lock"
+optsl="Suspend"
+optpo="Shutdown"
+optrb="Reboot"
+options="$optex\n$optlk\n$optsl\n$optpo\n$optrb"
+
+answer=$(echo -e "$options" | dmenu -i -b -fn 'MonaspiceKr Nerd Font Mono:size=11' -nb "#222222" -nf "#bbbbbb" -sb "#FF0000" -sf "#EEEEEE")
+
+case $answer in
+    $optex)
+        pkill dwm
+    ;;
+    $optlk)
+        $LOCKER
+    ;;
+    $optsl)
+        systemctl suspend
+    ;;
+    $optpo)
+        poweroff
+    ;;
+    $optrb)
+        reboot
+    ;;
+esac
+
+exit 0

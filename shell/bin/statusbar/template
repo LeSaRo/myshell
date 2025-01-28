@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$BUTTON" in
+    1) echo "Left Mouse Button" ;;
+    2) echo "Scroll click" ;;
+    3) echo "Right Mouse Button" ;;
+    4) echo "Scroll Up" ;;
+    5) echo "Scroll Down" ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

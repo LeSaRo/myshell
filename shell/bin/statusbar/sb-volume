@@ -1,0 +1,10 @@
+#!/bin/sh
+wpctl get-volume @DEFAULT_SINK@ | awk 'BEGIN{ FS=" " } { if ( NF >= 3 ){print "🔇"$2*100}  else  {print "🔊"$2*100} }'
+
+case "$BUTTON" in
+    1) wpctl set-mute @DEFAULT_SINK@ toggle ;;
+    3) pwvucontrol & ;;
+    4) wpctl set-volume @DEFAULT_SINK@ 5%+ ;;
+    5) wpctl set-volume @DEFAULT_SINK@ 5%- ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case "$BUTTON" in
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+cur_bright=`cat /sys/class/backlight/acpi_video0/brightness`
+echo "$cur_bright"

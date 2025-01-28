@@ -1,0 +1,31 @@
+#!/bin/sh
+
+batt_stat=`cat /sys/class/power_supply/BAT0/status`
+batt_pow=`cat /sys/class/power_supply/BAT0/capacity`
+
+batt_icon=""
+
+case "$batt_stat" in
+    "Charging")batt_icon="🔌" 
+    ;;
+    "Not charging")batt_icon="🛑" 
+    ;;
+    "Discharging")
+        if [ "$batt_pow" -le 20 ]; then
+            batt_icon="🪫"
+        else
+            batt_icon="🔋"
+        fi
+    ;;
+esac
+
+case "$BUTTON" in
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+echo "$batt_icon""$batt_pow"
+
+unset batt_stat
+unset batt_pow
+
+exit 0

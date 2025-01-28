@@ -41,6 +41,12 @@ if ask "Copy .zshrc"; then
 	fi
 fi
 
+# Local scripts
+if ask "Install local programs"; then
+	ln -s $(realpath "$MYSHDIR"/shell/bin/statusbar) "$HOME"/.local/bin/
+	ln -s $(realpath "$MYSHDIR"/shell/bin/dmenu-scripts) "$HOME"/.local/bin/
+fi
+
 # Alacritty config
 if ask "Install alcritty config"; then
 	mkdir -p "$CONFDIR""/alacritty/themes"
