@@ -17,9 +17,10 @@ function ask() {
 if ask "Copy .zshrc"; then
 	ln -s $(realpath "$MYSHDIR"/shell/zshrc) "$HOME"/.zshrc
 	ln -s $(realpath "$MYSHDIR"/shell/zprofile) "$HOME"/.zprofile
-	if ask "Enable colored man pages"; then
-		git clone https://github.com/ael-code/zsh-colored-man-pages.git "$HOME"/.zsh/plugins/zsh-colores-man-pages
-	fi
+
+	#if ask "Enable colored man pages"; then
+	#	git clone https://github.com/ael-code/zsh-colored-man-pages.git "$HOME"/.zsh/plugins/zsh-colores-man-pages
+	#fi
 
 	if ask "Config shell .env"; then
 		# zsh plugins
@@ -52,7 +53,8 @@ if ask "Install tmux config"; then
 	ln -s "$(realpath "$MYSHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	ln -sfn "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline/
+	#ln -sfn "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline/
+	cp -rv "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline/
 fi
 
 # Neovim config
