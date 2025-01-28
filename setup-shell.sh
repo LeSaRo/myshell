@@ -16,7 +16,7 @@ function ask() {
 # Install zshrc
 if ask "Copy .zshrc"; then
 	ln -s $(realpath "$MYSHDIR"/shell/zshrc) "$HOME"/.zshrc
-	ln -s $(realpath "$MYSHDIR"/shell/zshenv) "$HOME"/.zshenv
+	ln -s $(realpath "$MYSHDIR"/shell/zprofile) "$HOME"/.zprofile
 	if ask "Enable colored man pages"; then
 		git clone https://github.com/ael-code/zsh-colored-man-pages.git "$HOME"/.zsh/plugins/zsh-colores-man-pages
 	fi

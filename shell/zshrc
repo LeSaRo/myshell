@@ -67,9 +67,6 @@ bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
 
-# Not in .zshenv because it'll get overwriten
-AUTO_NOTIFY_IGNORE+=("docker" "ytfzf" "btop" "bat" "lf")
-
 source "$HOME"/myshell/shell/aliases.sh
 # Optional config file for machine specific aliases
 if [[ -f "$HOME"/.machinerc ]]; then

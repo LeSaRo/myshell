@@ -10,3 +10,4 @@ if [[ ":$PATH:" != *":$HOME/.local/bin"* ]]; then
 fi
 
 export AUTO_NOTIFY_THRESHOLD=30
+AUTO_NOTIFY_IGNORE+=("docker" "ytfzf" "btop" "bat" "lf" "paru" "pacman" "bashmount" "qalc")
