@@ -32,6 +32,7 @@ alias lt="ls --tree"
 alias lta="lt -a"
 ## Directories
 alias cdda="cd ""$MYSH_DIR_DATA"
+alias cdmt="cd /run/media/$(whoami)"
 alias cdde="cd ""$MYSH_DIR_DEV"
 alias cdvl="cd ""$MYSH_DIR_VOILE"
 alias voile="v $MYSH_DIR_VOILE/docs"
