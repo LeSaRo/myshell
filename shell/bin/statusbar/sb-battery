@@ -1,4 +1,5 @@
 #!/bin/sh
+# Display the state of the battery
 
 batt_stat=`cat /sys/class/power_supply/BAT0/status`
 batt_pow=`cat /sys/class/power_supply/BAT0/capacity`

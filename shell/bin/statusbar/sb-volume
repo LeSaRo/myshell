@@ -1,4 +1,5 @@
 #!/bin/sh
+# Display volume
 wpctl get-volume @DEFAULT_SINK@ | awk 'BEGIN{ FS=" " } { if ( NF >= 3 ){print "🔇"$2*100}  else  {print "🔊"$2*100} }'
 
 case "$BUTTON" in

@@ -1,4 +1,5 @@
 #!/bin/sh
+# Display connection state of the WiFi and Ethernet
 
 if [ "$(cat /sys/class/net/w*/operstate 2>/dev/null)" = 'up' ]; then
     wficon="🛜"

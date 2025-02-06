@@ -11,4 +11,3 @@ export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 export PATH="$PATH:$(find ~/.local/bin -type l | paste -sd ':' -)"
 
 export AUTO_NOTIFY_THRESHOLD=30
-AUTO_NOTIFY_IGNORE+=("docker" "ytfzf" "btop" "bat" "lf" "paru" "pacman" "bashmount" "qalc")

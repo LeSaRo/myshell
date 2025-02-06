@@ -2,7 +2,7 @@
 
 # Overrides
 alias ls="lsd --color=auto --group-dirs=first"
-alias toilet="toilet -d /usr/share/figlet/fonts"
+#alias toilet="toilet -d /usr/share/figlet/fonts"
 alias ip="ip --color=auto"
 
 # cd

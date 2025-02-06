@@ -1,4 +1,5 @@
 #!/bin/sh
+# Display RAM and CPU usage
 
 memory=$(free -h | awk '/^Mem/ { print ":"$3 }' | sed s/i//g)
 cpu=$(iostat -c | awk 'NR>=4 && NR <=4' | awk '{print ""$3"%"}')
