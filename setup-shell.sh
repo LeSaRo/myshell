@@ -36,8 +36,11 @@ if ask "Copy .zshrc"; then
 		read -rp "Developement path: " response
 		echo "MYSH_DIR_DEV=""$response" >>"$MYSHDIR"/shell/.env-shell
 		# notetaker
-		read -rp "Voile path: " response
-		echo "MYSH_DIR_VOILE=""$response" >>"$MYSHDIR"/shell/.env-shell
+		read -rp "Grimoire path: " response
+		echo "MYSH_DIR_GRIMOIRE=""$response" >>"$MYSHDIR"/shell/.env-shell
+    else
+        echo "Using default values"
+        cp "$MYSHDIR"/shell/.env-shell-sample "$MYSHDIR"/shell/.env-shell
 	fi
 fi
 
