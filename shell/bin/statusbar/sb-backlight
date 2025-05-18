@@ -4,5 +4,5 @@ case "$BUTTON" in
     6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-cur_bright=`cat /sys/class/backlight/acpi_video0/brightness`
+cur_bright=$(xbacklight  | awk -F '.' '{print $1}')
 echo "$cur_bright"
