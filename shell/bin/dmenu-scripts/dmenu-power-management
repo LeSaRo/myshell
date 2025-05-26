@@ -11,7 +11,7 @@ optpo="Shutdown"
 optrb="Reboot"
 options="$optex\n$optlk\n$optsl\n$optpo\n$optrb"
 
-answer=$(echo -e "$options" | dmenu -i -b -fn 'MonaspiceKr Nerd Font Mono:size=11' -nb "#000000" -nf "#bbbbbb" -sb "#FF0000" -sf "#EEEEEE")
+answer=$(echo -e "$options" | dmenu -c -l 5 -i -b -p "Logout:" -fn 'Monaspace Krypton:size=11' -nb "#000000" -nf "#bbbbbb" -sb "#FF0000" -sf "#EEEEEE")
 
 case $answer in
     $optex)

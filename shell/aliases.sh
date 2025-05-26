@@ -22,6 +22,7 @@ alias pern="perl-rename -v"
 alias pernt="pern -n"
 alias weather="curl fr.wttr.in/Genève\?qf"
 alias bm="bashmount"
+alias curlclip="curl -O \$(xclip -o); ls"
 ## ls
 alias la="ls -a"
 alias ll="ls -lh"

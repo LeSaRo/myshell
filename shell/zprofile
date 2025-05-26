@@ -1,3 +1,4 @@
+#!/bin/zsh
 export EDITOR=/bin/nvim
 export PAGER="bat"
 export MANPAGER=$PAGER

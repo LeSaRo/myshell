@@ -20,4 +20,4 @@ norf="${2:-"#bbbbbb"}"
 selb="${3:-"#1b18dd"}"
 self="${4:-"#eeeeee"}"
 
-j4-dmenu-desktop -d "dmenu -b -i -fn \"MonaspiceKr Nerd Font Mono:size=11\" -nb '$norb' -nf '$norf' -sb '$selb' -sf '$self'"
+j4-dmenu-desktop -d "dmenu -p 'Launch:' -b -i -fn \"Monaspace Krypton:size=11\" -nb '$norb' -nf '$norf' -sb '$selb' -sf '$self' -c -l 10"
