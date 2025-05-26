@@ -1,20 +1,6 @@
 #!/bin/sh
 # Script to use j4-dmenu-desktop with dwm (ironicaly)
 
-#if [ $# -ge 4 ]; then
-#    # Custom colors
-#    norb="$1"
-#    norf="$2"
-#    selb="$3"
-#    self="$4"
-#else
-#    # Default colors
-#    norb="#000000"
-#    norf="#bbbbbb"
-#    selb="#1b18dd"
-#    self="#eeeeee"
-#fi
-
 norb="${1:-"#000000"}"
 norf="${2:-"#bbbbbb"}"
 selb="${3:-"#1b18dd"}"

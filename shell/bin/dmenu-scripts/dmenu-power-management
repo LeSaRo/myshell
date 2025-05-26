@@ -2,8 +2,6 @@
 # dmenu script which show a list of power managements options
 
 # dmenu config
-#font="MonaspiceKr Nerd Font Mono:size=11"
-#colors="-nb #222222 -nf #bbbbbb -sb #FF0000 -sf #eeeeee"
 optex="Exit"
 optlk="Lock"
 optsl="Suspend"
@@ -11,7 +9,7 @@ optpo="Shutdown"
 optrb="Reboot"
 options="$optex\n$optlk\n$optsl\n$optpo\n$optrb"
 
-answer=$(echo -e "$options" | dmenu -c -l 5 -i -b -p "Logout:" -fn 'Monaspace Krypton:size=11' -nb "#000000" -nf "#bbbbbb" -sb "#FF0000" -sf "#EEEEEE")
+answer=$(echo -e "$options" | dmenu "$@")
 
 case $answer in
     $optex)
