@@ -13,6 +13,8 @@ export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 export PATH="$PATH:$(find ~/.local/bin -type l | paste -sd ':' -)"
 
 export AUTO_NOTIFY_THRESHOLD=30
+# Get env vars
+source "$HOME""/myshell/shell/.env-shell"
 
 # Optional config file for machine specific profile
 if [[ -f "$HOME"/.mprofile ]]; then

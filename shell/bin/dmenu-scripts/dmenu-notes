@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path="$MYSH_DIR_GRIMOIRE""/"
+path="$MYSH_DIR_GRIMOIRE""/docs/"
 oldpath="$path"
 echo $path
 
