@@ -1,7 +1,8 @@
 #!/bin/bash
 
-path="$HOME""/documents/grimoire/docs/"
+path="$MYSH_DIR_GRIMOIRE""/"
 oldpath="$path"
+echo $path
 
 newnote() { \
     name="$(echo "" | dmenu -c -fn "Monaspace Krypton:size=11" -sb "#480cfc" -nf "#bbbbbb" -p "Enter a name: " <&-)" || exit 0
