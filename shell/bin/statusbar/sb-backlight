@@ -5,4 +5,4 @@ case "$BUTTON" in
 esac
 
 cur_bright=$(xbacklight  | awk -F '.' '{print $1}')
-echo "$cur_bright"
+echo "☼$cur_bright"

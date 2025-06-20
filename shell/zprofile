@@ -17,6 +17,6 @@ export AUTO_NOTIFY_THRESHOLD=30
 source "$HOME""/myshell/shell/.env-shell"
 
 # Optional config file for machine specific profile
-if [[ -f "$HOME"/.mprofile ]]; then
-    source "$HOME"/.mprofile
-fi
+#if [[ -f "$HOME"/.mprofile ]]; then
+#    source "$HOME"/.mprofile
+#fi

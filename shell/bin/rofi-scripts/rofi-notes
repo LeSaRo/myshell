@@ -1,0 +1,23 @@
+#!/bin/bash
+
+path="$MYSH_DIR_GRIMOIRE""/docs/"
+oldpath="$path"
+echo $path
+
+newnote() { \
+    name="$(echo "" | rofi -dmenu -c -fn "Monaspace Krypton:size=11" -sb "#480cfc" -nf "#bbbbbb" -p "Enter a name: " -theme-str "window {height: 5%;}" )" || exit 0
+    : "${name:=$(date +%F_%T | tr ':' '-')}"
+    setsid -f "$TERMINAL" -e nvim $path/$name".md" >/dev/null 2>&1
+}
+
+while [ -d $path$choice ]; do
+    choice=$(echo -e "New\n$(ls -1p --group-directories-first $path)" | rofi -dmenu "$@") || exit 0
+    echo $choice
+
+    case $choice in
+        New) newnote ;;
+        *.md) setsid -f "$TERMINAL" -e nvim "$path/$choice" >/dev/null 2>&1 ;;
+        */) oldpath="$path"; path="$path""$choice"; choice="" ;;
+        *) exit ;;
+    esac
+done

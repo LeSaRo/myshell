@@ -1,3 +1,4 @@
+#!/bin/zsh
 HISTFILE=~/.zshist
 HISTSIZE=1000
 SAVEHIST=1000

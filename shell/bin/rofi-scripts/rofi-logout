@@ -1,0 +1,34 @@
+#!/bin/sh
+# dmenu script which show a list of power managements options
+
+# dmenu config
+_iconpath="\0icon\x1f/usr/share/icons/Papirus/64x64"
+optex="Exit$_iconpath/apps/system-log-out.svg"
+optlk="Lock$_iconpath/apps/system-lock-screen.svg"
+optsl="Suspend$_iconpath/apps/system-suspend.svg"
+optpo="Shutdown$_iconpath/apps/system-shutdown.svg"
+optrb="Reboot$_iconpath/apps/system-restart.svg"
+options="$optpo\n$optrb\n$optlk\n$optsl\n$optex"
+
+#answer=$(echo -e "$options" |rofi -dmenu -i -no-fixed-num-lines -lines 5 -matching fuzzy -theme-str "window {width: 10%;}" -theme Indego "$@")
+answer=$(echo -e "$options" |rofi -dmenu -i -config ~/.config/rofi/logout.rasi "$@")
+
+case $answer in
+    $optex)
+        pkill dwm
+    ;;
+    $optlk)
+        $LOCKER
+    ;;
+    $optsl)
+        systemctl suspend
+    ;;
+    $optpo)
+        poweroff
+    ;;
+    $optrb)
+        reboot
+    ;;
+esac
+
+exit 0
