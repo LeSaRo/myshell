@@ -1,0 +1,66 @@
+[global]
+    ### Geometry ###
+    width = (100, 300)
+    height = (0, 300)
+    origin = bottom-right
+    offset = (10, 30)
+    scale = 1.25
+    corner_radius = 10
+    corners = top-left, bottom-right
+
+    #### Progress bar ####
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 5
+    progress_bar_corners = top-right, bottom-left
+
+    transparency = 0
+    padding = 10
+    horizontal_padding = 5
+    frame_width = 1
+    frame_color = "#aaaaaa"
+    gap_size = 5
+    sort = urgency_ascending
+
+    ### Text ###
+    font = Monaspace Krypton 10
+    alignment = right
+    vertical_alignment = bottom
+
+    ### Icons ###
+    enable_recursive_icon_lookup = true
+    icon_theme = "Papirus, Adwaita"
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 32
+
+[urgency_low]
+    background = "#222222"
+    foreground = "#eeeeee"
+    timeout = 10
+    #default_icon = dialog-information
+
+[urgency_normal]
+    background = "#335aaf"
+    foreground = "#eeeeee"
+    frame_color = "#c1cfed"
+    timeout = 10
+    override_pause_level = 30
+    #default_icon = dialog-information
+
+[urgency_critical]
+    background = "#770000"
+    foreground = "#eeeeee"
+    frame_color = "#aa0000"
+    timeout = 0
+    override_pause_level = 60
+    default_icon = dialog-warning
+
+[cal]
+    appname = "cal"
+    alignment = left
+
+# vim: ft=cfg
