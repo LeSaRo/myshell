@@ -1,0 +1,4 @@
+#!/bin/sh
+xset dpms 60 180 0
+i3lock -ne -i "$LOCK_IMG"
+xset dpms 0 0 0
