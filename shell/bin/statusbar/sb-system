@@ -1,8 +1,8 @@
 #!/bin/sh
 # Display RAM and CPU usage
 
-memory=$(free -h | awk '/^Mem/ { print ":"$3 }' | sed s/i//g)
-cpu=$(iostat -c | awk 'NR>=4 && NR <=4' | awk '{print ""$3"%"}')
+memory=$(free -h | awk '/^Mem/ { print "M:"$3 }' | sed s/i//g)
+cpu=$(iostat -c | awk 'NR>=4 && NR <=4' | awk '{print "C:"$3"%"}')
 
 case "$BUTTON" in
     3) $TERMINAL -e btop ;;
