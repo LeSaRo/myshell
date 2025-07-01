@@ -1,11 +1,12 @@
 #!/bin/sh
 
-echo 
+bltct="$(bluetoothctl devices Connected | wc -l)"
+echo "$(if [[ $bltct -gt 0 ]]; then echo "$bltct"; fi)"
 
 case "$BUTTON" in
     1)
         bltmsg=$(bluetoothctl devices Connected | awk '{sub($2 FS,""); sub($1 FS,"")}1')
-        notify-send -a "$(basename $0)" -u low "Connected devices" "$bltmsg"
+        notify-send -i "bluetooth" -a "$(basename $0)" -u low "Connected devices" "$bltmsg"
     ;;
     3) blueman-manager ;;
     6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;

@@ -59,8 +59,8 @@
     override_pause_level = 60
     default_icon = dialog-warning
 
-[cal]
-    appname = "cal"
+[sb-datetime]
+    appname = "sb-datetime"
     alignment = left
 
 # vim: ft=cfg
