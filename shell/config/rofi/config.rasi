@@ -1,0 +1,26 @@
+@theme "Indego"
+
+configuration {
+	font: "Monaspace Krypton 20";
+	show-icons: true;
+	icon-theme: "Papirus";
+	matching: "fuzzy";
+    display-drun: "Launch";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method: "name";
+  }
+}
+listview {
+    scrollbar: false;
+}
+element-icon {
+    size: 0.75em;
+}
+window {
+    width: 40%;
+}

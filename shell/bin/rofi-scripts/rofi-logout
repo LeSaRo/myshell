@@ -3,14 +3,18 @@
 
 # dmenu config
 _iconpath="\0icon\x1f/usr/share/icons/Papirus/64x64"
-optex="Exit$_iconpath/apps/system-log-out.svg"
-optlk="Lock$_iconpath/apps/system-lock-screen.svg"
-optsl="Suspend$_iconpath/apps/system-suspend.svg"
-optpo="Shutdown$_iconpath/apps/system-shutdown.svg"
-optrb="Reboot$_iconpath/apps/system-restart.svg"
-options="$optpo\n$optrb\n$optlk\n$optsl\n$optex"
+icnex="$_iconpath/apps/system-log-out.svg"
+optex="Exit"
+icnlk="$_iconpath/apps/system-lock-screen.svg"
+optlk="Lock"
+icnsl="$_iconpath/apps/system-suspend.svg"
+optsl="Suspend"
+icnpo="$_iconpath/apps/system-shutdown.svg"
+optpo="Shutdown"
+icnrb="$_iconpath/apps/system-restart.svg"
+optrb="Reboot"
+options="$optpo$icnpo\n$optrb$icnrb\n$optlk$icnlk\n$optsl$icnsl\n$optex$icnex"
 
-#answer=$(echo -e "$options" |rofi -dmenu -i -no-fixed-num-lines -lines 5 -matching fuzzy -theme-str "window {width: 10%;}" -theme Indego "$@")
 answer=$(echo -e "$options" |rofi -dmenu -i -config ~/.config/rofi/logout.rasi "$@")
 
 case $answer in
