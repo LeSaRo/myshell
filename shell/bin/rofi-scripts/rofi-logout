@@ -13,7 +13,7 @@ icnpo="$_iconpath/apps/system-shutdown.svg"
 optpo="Shutdown"
 icnrb="$_iconpath/apps/system-restart.svg"
 optrb="Reboot"
-options="$optpo$icnpo\n$optrb$icnrb\n$optlk$icnlk\n$optsl$icnsl\n$optex$icnex"
+options="$optsl$icnsl\n$optpo$icnpo\n$optrb$icnrb\n$optlk$icnlk\n$optex$icnex"
 
 answer=$(echo -e "$options" |rofi -dmenu -i -config ~/.config/rofi/logout.rasi "$@")
 
