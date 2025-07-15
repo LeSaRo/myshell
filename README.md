@@ -27,8 +27,8 @@ yt-dlp
 
 ### Teminal
 ``` bash
-alacritty
-otf-monaspace-nerd
+alacritty or kitty
+otf-monaspace
 ```
 
 ## Installation
