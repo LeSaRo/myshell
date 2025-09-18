@@ -18,6 +18,6 @@ export PATH="$PATH:$(find ~/.local/bin -type l | paste -sd ':' -)"
 export AUTO_NOTIFY_THRESHOLD=30
 
 # Optional config file for machine specific profile
-#if [[ -f "$HOME"/.mprofile ]]; then
-#    source "$HOME"/.mprofile
-#fi
+if [[ -f "$HOME"/.mprofile ]]; then
+    source "$HOME"/.mprofile
+fi

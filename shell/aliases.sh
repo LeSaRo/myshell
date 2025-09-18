@@ -4,6 +4,7 @@
 alias ls="lsd --color=auto --group-dirs=first"
 #alias toilet="toilet -d /usr/share/figlet/fonts"
 alias ip="ip --color=auto"
+alias man="batman"
 
 # cd
 alias ...="../.."
@@ -20,9 +21,9 @@ alias hist="history"
 alias zshrl="source $HOME/.zshrc"
 alias pern="perl-rename -v"
 alias pernt="pern -n"
-alias weather="curl fr.wttr.in/Genève\?qf"
 alias bm="bashmount"
 alias curlclip="curl -O \$(xclip -o); ls"
+alias dff="df -h | bat -p -l conf"
 ## ls
 alias la="ls -a"
 alias ll="ls -lh"
