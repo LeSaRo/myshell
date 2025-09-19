@@ -9,6 +9,7 @@ export BAT_THEME="Visual Studio Dark+"
 export DELTA_PAGER="bat -p"
 export TERMINAL=st
 export LOCKER="i3lock -ne -i $LOCK_IMG"
+export OPENER="xdg-open"
 
 export PATH="$PATH:""$HOME""/.local/bin"
 # Add all directories in `~/.local/bin` to $PATH
