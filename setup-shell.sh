@@ -4,7 +4,7 @@
 # Author      : Le_SaRo
 # Date        : 2024.01.22, V1.0
 # Date        : 2024.06.14, V1.1, Renaming
-# bvladl
+# Date        : 2025.09.24, V2.0, Restructuring
 
 MYSHDIR="$HOME""/myshell"
 CONFDIR="$HOME""/.config"
@@ -49,37 +49,17 @@ fi
 # Local scripts
 if ask "Install local programs"; then
     mkdir -pv "$HOME/.local/bin"
-	ln -s $(realpath "$MYSHDIR"/shell/bin/statusbar) "$HOME"/.local/bin/
-	ln -s $(realpath "$MYSHDIR"/shell/bin/dmenu-scripts) "$HOME"/.local/bin/
-	ln -s $(realpath "$MYSHDIR"/shell/bin/rofi-scripts) "$HOME"/.local/bin/
+    for bin in $(ls "$MYSHDIR"/bin)
+    do
+        ln -s $(realpath "$MYSHDIR"/bin/"$bin") "$HOME"/.local/bin/
+    done
 fi
 
-# Terminal config
-while [[ "$ttych" == "" ]]; do
-    read -n 1 -p "Choose terminal (Alacritty/Kitty(D)/None): " ttych
-    echo
-    case $ttych in
-        a|A) 
-            echo "Seting up Alacritty"
-            mkdir -p "$CONFDIR""/alacritty/themes"
-            ln -s "$(realpath "$MYSHDIR"/terminal/alacritty.toml)" "$CONFDIR"/alacritty/alacritty.toml
-            wget -O "$CONFDIR"/alacritty/themes/"theme.toml" https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/campbell.toml
-            ttych="a"
-        ;;
-        k|K|"") 
-            echo "Seting up Kitty"
-	        ln -s $(realpath "$MYSHDIR/shell/config/kitty") "$CONFDIR/"
-            ttych="k"
-        ;;
-        n|N) 
-            echo "Ignoring"
-            ttych="n"
-        ;;
-        *) 
-            echo "Invalid"
-            ttych=""
-        ;;
-    esac
+for conf in $(ls "$MYSHDIR"/config)
+do
+    if ask "Install $conf config"; then
+        ln -s $(realpath "$MYSHDIR"/config/"$conf") "$HOME"/.config/
+    fi
 done
 
 # tmux config
@@ -87,8 +67,7 @@ if ask "Install tmux config"; then
 	ln -s "$(realpath "$MYSHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
 
 	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	#ln -sfn "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline/
-	cp -rv "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline/
+	ln -s "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline
 fi
 
 # Neovim config
