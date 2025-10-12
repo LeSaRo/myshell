@@ -37,6 +37,10 @@
     min_icon_size = 32
     max_icon_size = 32
 
+    ### Misc/Advanced ###
+    # dmenu path.
+    dmenu = /usr/local/bin/dmenu -p dunst:
+
 [urgency_low]
     background = "#222222"
     foreground = "#eeeeee"

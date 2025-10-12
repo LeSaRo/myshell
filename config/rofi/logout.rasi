@@ -1,26 +1,14 @@
-@theme "Indego"
+@import "config"
+
+entry {
+    placeholder: "Logoff";
+}
 
 configuration {
 	font: "Monaspace Krypton 48";
-	show-icons: true;
-	icon-theme: "Papirus";
-	matching: "fuzzy";
     fixed-num-lines: false;
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method: "name";
-  }
 }
-listview {
-    scrollbar: false;
-}
-element-icon {
-    size: 0.75em;
-}
+
 window {
     width: 6em;
 }
