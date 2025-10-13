@@ -11,6 +11,8 @@ export TERMINAL=st
 export LOCKER="i3lock -ne -i $LOCK_IMG"
 export OPENER="xdg-open"
 
+export ADW_DISABLE_PORTAL=1
+
 export PATH="$PATH:""$HOME""/.local/bin"
 # Add all directories in `~/.local/bin` to $PATH
 export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
