@@ -13,6 +13,7 @@ set scrolloff 5 # Leave space at the top and bottom
 map gda $lf -remote "send $id cd $MYSH_DIR_DATA"
 map gde $lf -remote "send $id cd $MYSH_DIR_DEV"
 map gdl cd ~/downloads
+map gdo cd ~/documents
 map gc cd ~/.config
 map gi cd ~/images
 map gm $lf -remote "send $id cd /run/media/$(whoami)"
@@ -60,9 +61,9 @@ cmd extract ${{
     set -f
     read -p "Extract where: " name; name="${name:-"."}" 
     case $f in
-        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) mkdir "$name"; tar xjvf $f;;
-        *.tar.gz|*.tgz) mkdir "$name"; tar xzvf $f;;
-        *.tar.xz|*.txz) mkdir "$name"; tar xJvf $f;;
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) mkdir -p "$name"; tar xjvf $f;;
+        *.tar.gz|*.tgz) mkdir -p "$name"; tar xzvf $f;;
+        *.tar.xz|*.txz) mkdir -p "$name"; tar xJvf $f;;
         *.zip) unzip $f -d "$name";;
         *.rar) unrar x $f "$name";;
         *.7z) 7z x $f -o"$name";;

@@ -51,7 +51,7 @@ then
 fi 
 
 # Prompt
-PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{218})%(!.#.>)%f ' #{folder} ({branch}{/*/+}) ❯
+PS1='%F{27}%2~ %f%${vcs_info_msg_0_} %(?:%F{81}:%F{red})%(!.#.>)%f ' #{folder} ({branch}{/*/+}) ❯
 RPS1='%(?..%F{red}%?)' # Show error code at the end
 
 # Plugins
