@@ -44,10 +44,10 @@ alias normalise-names="perl-rename -v \"y/A-Z/a-z/; y/ ,/-/; s/[~#()\!\&_]/-/g; 
 alias dusthis="dust -d=1"
 ## Config
 alias mysh="v ""$HOME""/myshell"
-alias myshal="v ""$HOME""/myshell/alacritty/"
-alias myshnv="v ""$HOME""/myshell/nvim/"
+alias myshbn="v ""$HOME""/myshell/bin"
+alias myshcf="v ""$HOME""/myshell/config/"
 alias myshsh="v ""$HOME""/myshell/shell/"
-alias myshtmux="v ""$HOME""/myshell/tmux/"
+alias myshtx="v ""$HOME""/myshell/tmux/"
 alias nvimconf="v ""$HOME""/.config/nvim/"
 
 # Developement

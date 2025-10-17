@@ -1,0 +1,4 @@
+@import "config"
+entry {
+    placeholder: "Action";
+}

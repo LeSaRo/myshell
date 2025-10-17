@@ -1,7 +1,8 @@
 entry {
-    placeholder: "Launch";
+    placeholder: "";
     text-color: #e1e1e1;
     padding: 0.5%;
+    horizontal-align: 0.5;
 }
 
 configuration {
