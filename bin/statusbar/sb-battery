@@ -20,7 +20,7 @@ case "$batt_stat" in
     ;;
 esac
 
-case "$BUTTON" in
+case "$BLOCK_BUTTON" in
     6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 

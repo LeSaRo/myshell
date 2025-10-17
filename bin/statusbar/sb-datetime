@@ -2,7 +2,7 @@
 
 date '+%F %H:%M '
 
-case "$BUTTON" in
+case "$BLOCK_BUTTON" in
     1) notify-send -a "$(basename $0)" -u low "$(cal | head -n1)" "$(cal | tail -n+2)" ;;
     2) echo "Scroll click" ;;
     3) echo "Right Mouse Button" ;;
