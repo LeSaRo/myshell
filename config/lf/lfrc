@@ -5,6 +5,7 @@ set info size:time
 set icons true
 set ignorecase true
 set scrolloff 5 # Leave space at the top and bottom
+set wrapscroll
 #:}}}
 
 #: Mappings {{{

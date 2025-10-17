@@ -102,7 +102,7 @@ fi             # FILE
 *.cxx           
 *.cc            
 *.cp            
-*.c             
+*.c             
 *.cs            󰌛
 *.h             
 *.hh            
