@@ -22,11 +22,11 @@ map gr $lf -remote "send $id cd $MYSH_DIR_GRIMOIRE"
 #}}}
 
 # Git {{{
-map <c-g>pl !{{ git pull }}
-map <c-g>ps !{{ git push }}
-map <c-g>a  !{{ git add -v $fx }}
-map <c-g>s  !{{ git status }}
-map <c-g>c  !{{
+map <a-g>pl !{{ git pull }}
+map <a-g>ps !{{ git push }}
+map <a-g>a  !{{ git add -v $fx }}
+map <a-g>s  !{{ git status }}
+map <a-g>c  !{{
     read -p "Commit message: " msg
     git commit -m "$msg"
     unset msg
