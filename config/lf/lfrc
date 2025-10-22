@@ -1,4 +1,4 @@
-#: Options {{{
+# Options {{{
 set drawbox
 #set hidden true
 set info size:time
@@ -8,9 +8,9 @@ set scrolloff 5 # Leave space at the top and bottom
 set wrapscroll
 #:}}}
 
-#: Mappings {{{
+# Mappings {{{
 
-#: Goto {{{
+# Goto {{{
 map gda $lf -remote "send $id cd $MYSH_DIR_DATA"
 map gde $lf -remote "send $id cd $MYSH_DIR_DEV"
 map gdl cd ~/downloads
@@ -18,7 +18,20 @@ map gdo cd ~/documents
 map gc cd ~/.config
 map gi cd ~/images
 map gm $lf -remote "send $id cd /run/media/$(whoami)"
-#:}}}
+map gr $lf -remote "send $id cd $MYSH_DIR_GRIMOIRE"
+#}}}
+
+# Git {{{
+map <c-g>pl !{{ git pull }}
+map <c-g>ps !{{ git push }}
+map <c-g>a  !{{ git add -v $fx }}
+map <c-g>s  !{{ git status }}
+map <c-g>c  !{{
+    read -p "Commit message: " msg
+    git commit -m "$msg"
+    unset msg
+}}
+#}}}
 
 map a :push %mkdir<space>
 # mkdir command. See wiki if you want it to select created dir
@@ -30,14 +43,22 @@ map o mode
 map sn :{{ # keep info when sorting by name
     set sortby name; set info size:time
 }}
+
+cmd reload-conf ${{
+}}
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map <f-2> edit-config
 #:}}}
 
-#: Shell {{{
+# Shell {{{
 # interpreter for shell commands
 set shell sh
 set shellopts '-eu'
 set ifs "\n"
-
+set promptfmt "\033[36m%d\033[0m%f"
 
 # use enter for shell commands
 map <enter> shell
@@ -50,7 +71,7 @@ map x $$f
 map X !$f
 #:}}}
 
-#: File {{{
+# File {{{
 cmd create ${{
     #push %touch<space>
     echo "$(basename "$f")" | awk -F. "{ print \$1 }"
@@ -90,7 +111,7 @@ cmd zip ${{
 }}
 #:}}}
 
-#: Preview & Opener {{{
+# Preview & Opener {{{
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
@@ -115,5 +136,4 @@ set cleaner ctpvclear
 &ctpv -s $id
 &ctpvquit $id
 #:}}}
-
 # vim:fileencoding=utf-8:foldmethod=marker

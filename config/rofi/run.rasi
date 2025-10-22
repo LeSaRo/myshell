@@ -1,0 +1,13 @@
+@import "config"
+
+entry {
+    placeholder: "Run";
+}
+
+element{
+    children: [element-text];
+}
+
+window {
+    width: 25%;
+}
