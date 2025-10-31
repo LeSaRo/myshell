@@ -69,7 +69,23 @@ map ^ !true
 # execute current file (must be executable)
 map x $$f
 map X !$f
-#:}}}
+
+# Git {{{
+cmd on-cd &{{
+    # display git repository status in your prompt
+    source /usr/share/git/completion/git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=auto
+    GIT_PS1_SHOWSTASHSTATE=auto
+    GIT_PS1_SHOWUNTRACKEDFILES=auto
+    GIT_PS1_SHOWUPSTREAM=auto
+    GIT_PS1_COMPRESSSPARSESTATE=auto
+    git="$(__git_ps1 " (%s)")" || true
+    fmt="\033[36m%d\033[0m%f\033[0m\033[33;1m$git\033[0m"
+    lf -remote "send $id set promptfmt \"$fmt\""
+}}
+#}}}
+
+#}}}
 
 # File {{{
 cmd create ${{

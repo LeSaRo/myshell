@@ -5,6 +5,7 @@ alias ls="lsd --color=auto --group-dirs=first"
 #alias toilet="toilet -d /usr/share/figlet/fonts"
 alias ip="ip --color=auto"
 alias man="batman"
+alias cat="bat -pp"
 
 # cd
 alias ...="../.."
@@ -25,6 +26,7 @@ alias bm="bashmount"
 alias curlclip="curl -O \$(xclip -o); ls"
 alias dff="df -hT | bat -p -l conf"
 alias makesucc="make clean && make && sudo make install"
+alias bap="bat -p"
 ## ls
 alias la="ls -a"
 alias ll="ls -lh"
