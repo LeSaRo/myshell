@@ -51,6 +51,7 @@ cmd edit-config ${{
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 map <f-2> edit-config
+map <f-5> ${{clear}}
 #:}}}
 
 # Shell {{{
