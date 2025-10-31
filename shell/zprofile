@@ -12,6 +12,8 @@ export LOCKER="i3lock -ne -i $LOCK_IMG"
 export OPENER="xdg-open"
 
 export ADW_DISABLE_PORTAL=1
+export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_STYLE_OVERRIDE=kvantum
 
 export PATH="$PATH:""$HOME""/.local/bin"
 # Add all directories in `~/.local/bin` to $PATH
