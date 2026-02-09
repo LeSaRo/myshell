@@ -51,6 +51,7 @@ cmd edit-config ${{
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 map <f-2> edit-config
+map <f-3> ${{bashmount}}
 map <f-5> ${{clear}}
 #:}}}
 
@@ -150,6 +151,10 @@ cmd mode %{{
 
 set previewer ctpv
 set cleaner ctpvclear
+
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+
 &ctpv -s $id
 &ctpvquit $id
 #:}}}
