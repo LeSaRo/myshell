@@ -55,6 +55,7 @@ if ask "Install local programs"; then
     done
 fi
 
+# .config
 for conf in $(ls "$MYSHDIR"/config)
 do
     if ask "Install $conf config"; then

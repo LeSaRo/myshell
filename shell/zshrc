@@ -72,7 +72,7 @@ bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
 
-AUTO_NOTIFY_IGNORE+=("docker" "ytfzf" "btop" "bat" "lf" "bashmount" "qalc" "termusic")
+AUTO_NOTIFY_IGNORE+=("docker" "ytfzf" "btop" "bat" "lf" "bashmount" "qalc" "rmpc")
 
 source "$HOME"/myshell/shell/aliases.sh
 # Optional config file for machine specific aliases

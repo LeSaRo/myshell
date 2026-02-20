@@ -1,2 +1,6 @@
 tmux/.env-tmux
 shell/.env-shell
+
+# Ignore lfimg's scripts
+config/lf/preview
+config/lf/cleaner
