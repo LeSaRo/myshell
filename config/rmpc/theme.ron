@@ -2,20 +2,13 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    default_album_art_path: None,
     format_tag_separator: " | ",
-    browser_column_widths: [20, 38, 42],
-    background_color: None,
-    text_color: None,
-    header_background_color: None,
-    modal_background_color: None,
-    modal_backdrop: false,
     preview_label_style: (fg: "light_green"),
     preview_metadata_group_style: (fg: "green", modifiers: "Bold"),
     highlighted_item_style: (fg: "blue", modifiers: "Bold"),
     current_item_style: (fg: "white", bg: "blue", modifiers: "Bold"),
     borders_style: (fg: "8"),
-    highlight_border_style: (fg: "blue"),
+    highlight_border_style: (fg: "8"),
     symbols: (
         song: "󰎇",
         dir: "",
@@ -46,60 +39,6 @@
         ends_style: (),
         thumb_style: (fg: "blue"),
     ),
-    tab_bar: (
-        active_style: (fg: "white", bg: "blue", modifiers: "Bold"),
-        inactive_style: (),
-    ),
-    lyrics: (
-        timestamp: false
-    ),
-    browser_song_format: [
-        (
-            kind: Group([
-                (kind: Property(Track)),
-                (kind: Text(" ")),
-            ])
-        ),
-        (
-            kind: Group([
-                (kind: Property(Artist)),
-                (kind: Text(" - ")),
-                (kind: Property(Title)),
-            ]),
-            default: (kind: Property(Filename))
-        ),
-    ],
-    song_table_format: [
-        (
-            prop: (kind: Property(Artist),
-                default: (kind: Text("Unknown"))
-            ),
-            label_prop: (kind: Text("Artist")),
-            width: "20%",
-        ),
-        (
-            prop: (kind: Property(Title),
-                default: (kind: Text("Unknown"))
-            ),
-            label_prop: (kind: Text("Title")),
-            width: "35%",
-        ),
-        (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Unknown Album"), style: (fg: "white"))
-            ),
-            label_prop: (kind: Text("Album")),
-            width: "30%",
-        ),
-        (
-            prop: (kind: Property(Duration),
-                default: (kind: Text("-"))
-            ),
-            label_prop: (kind: Text("Duration")),
-            width: "15%",
-            alignment: Right,
-        ),
-    ],
     layout: Split(
         direction: Vertical,
         panes: [
@@ -111,7 +50,7 @@
                         (
                             size: "100%",
                             borders: "ALL",
-                            border_symbols: Inherited(parent: Rounded, top_left: "┬", top_right: "┬", bottom_left: "├", bottom_right: "┴"),
+                            border_symbols: Inherited(parent: Rounded, top_right: "┬", bottom_left: "├", bottom_right: "┴"),
                             pane: Component("header_center")
                         ),
                         (
@@ -228,25 +167,18 @@
                     pane: Pane(Property(content: [
                         (kind: Text("["), style: (fg: "blue", modifiers: "Bold")),
                         (kind: Property(Status(RepeatV2(
-                            //on_label: "󰑖",
-                            //off_label: "󰑖",
                             on_label: "REP ",
                             off_label: "REP ",
                             on_style: (fg: "yellow", modifiers: "Bold"),
                             off_style: (fg: "blue", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(RandomV2(
-                            // on_label: "󰒝",
-                            // off_label: "󰒝",
                             on_label: "SHF ",
                             off_label: "SHF ",
                             on_style: (fg: "yellow", modifiers: "Bold"),
                             off_style: (fg: "blue", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(ConsumeV2(
-                            // on_label: "󰩺",
-                            // off_label: "󰩺",
-                            // oneshot_label: "󰩺",
                             on_label: "CSU ",
                             off_label: "CSU ",
                             oneshot_label: "CSU ",
@@ -255,9 +187,6 @@
                             oneshot_style: (fg: "red", modifiers: "Bold"),
                         )))),
                         (kind: Property(Status(SingleV2(
-                            // on_label: "󰑘",
-                            // off_label: "󰑘",
-                            // oneshot_label: "󰑘",
                             on_label: "ONE",
                             off_label: "ONE",
                             oneshot_label: "ONE",
@@ -295,7 +224,7 @@
                     size: "100%",
                     pane: Pane(ProgressBar)
                 ),
-                (size: "10%", pane: Component("elapsed")),
+                (size: "8%", pane: Component("elapsed")),
             ]
         )
     },
