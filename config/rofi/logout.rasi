@@ -9,6 +9,11 @@ configuration {
     fixed-num-lines: false;
 }
 
+* {
+    separatorcolor: #FF0000;
+}
 window {
+    border-color: #AA0000F0;
+    background-color: #770000F0;
     width: 6em;
 }
