@@ -6,5 +6,5 @@ config/lf/preview
 config/lf/cleaner
 
 # Ignore mpd config files
-./config/mpd/database
-./config/mpd/playlists
+config/mpd/database
+config/mpd/playlists
