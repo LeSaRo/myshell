@@ -65,10 +65,7 @@ done
 
 # tmux config
 if ask "Install tmux config"; then
-	ln -s "$(realpath "$MYSHDIR"/tmux/tmux.conf)" "$HOME"/.tmux.conf
-
-	git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-	ln -s "$(realpath "$MYSHDIR"/tmux/powerline/)" "$CONFDIR"/tmux-powerline
+	ln -s "$(realpath "$MYSHDIR"/shell/tmux.conf)" "$HOME"/.tmux.conf
 fi
 
 # Neovim config
