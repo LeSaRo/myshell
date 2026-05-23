@@ -6,6 +6,7 @@ set icons true
 set ignorecase true
 set scrolloff 5 # Leave space at the top and bottom
 set wrapscroll
+set filtermethod glob
 #:}}}
 
 # Mappings {{{
@@ -37,6 +38,11 @@ map a :push %mkdir<space>
 # mkdir command. See wiki if you want it to select created dir
 map <delete> delete
 
+map S :push :glob-select<space>
+map U :push :glob-unselect<space>
+map E extract
+map D !dust -d1
+
 # Switch between 1 panel and full mode
 map o mode
 
@@ -52,6 +58,7 @@ cmd edit-config ${{
 }}
 map <f-2> edit-config
 map <f-3> ${{bashmount}}
+map <f-4> ${{termscp}}
 map <f-5> ${{clear}}
 #:}}}
 
